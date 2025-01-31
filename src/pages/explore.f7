@@ -1,0 +1,961 @@
+<template>
+  <div class="page" data-name="explore">
+    <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner">
+      <div class="left">
+        <a href="#" class="link icon-only panel-open" data-panel="left">
+          <i class="f7-icons">menu</i>
+        </a>
+      </div>
+      <div class="title" style="display: flex; justify-content: center; align-items: center;">
+        <img src="StyleSwipeBigLogo.png" alt="StyleSwipe Logo" class="navbar-logo" style="
+          align-items: center;
+          width: 40%;
+          height: 40%;" />
+      </div>
+      <div class="right">
+        <a href="#" class="link icon-only panel-open" data-panel="right">
+          <i class="f7-icons">person</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Left panel-->
+    <div class="panel panel-left panelcover panel-init" id="left-panel">
+      <div class="view">
+        <div class="page">
+          <div class="page-content"> 
+            <ul class="list links-list">
+            <div class="title"> Preferences</div>
+            <li>
+              <a href="/styleprofile/">
+                <span>Edit Style Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="/profileenvironment/">
+                <span>Edit Style Environment</span>
+              </a>
+            </li>
+            </ul>
+ 	   </div>
+          </div>
+      </div>
+      </div>
+  <!-- Right Panel -->
+  <div class="panel panel-right panel-reveal" id="right-panel">
+    <div class="view">
+      <div class="page">
+        <div class="page-content">
+          <ul class="list links-list">
+            <div class="title"> Profile</div>
+            <li>
+              <a href="#">
+                <i class="f7-icons">pencil</i>
+                <span>Edit Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">gear</i>
+                <span>Settings</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">question_circle</i>
+                <span>Help</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">info_circle</i>
+                <span>About</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">arrow_right_to_line</i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Content -->
+    <div class="page-content modern-content">
+      ${state.loading ? $h`
+        <div class="loading-container">
+          <div class="preloader-ring"></div>
+          <p>Loading product...</p>
+        </div>
+      ` : state.error ? $h`
+        <div class="error-container">
+          <i class="f7-icons">exclamationmark_circle</i>
+          <p>${state.error}</p>
+        </div>
+      ` : !state.product ? $h`
+        <div class="empty-state">
+          <i class="f7-icons">cube_box</i>
+          <p>No product data available</p>
+        </div>
+      ` : $h`
+        <div class="swipeable-card">
+          <div class="modern-swiper-container">
+            <div class="swipe-overlay">
+              <div class="swipe-left">
+                <i class="f7-icons">hand_thumbsdown_fill</i>
+              </div>
+              <div class="swipe-right">
+                <i class="f7-icons">hand_thumbsup_fill</i>
+              </div>
+            </div>
+            <div class="image-nav-button image-nav-prev" @click="${() => handleImageNavigation('prev')}">
+              <i class="f7-icons">chevron_left</i>
+            </div>
+            <div class="image-nav-button image-nav-next" @click="${() => handleImageNavigation('next')}">
+              <i class="f7-icons">chevron_right</i>
+            </div>
+            <div class="modern-image-card">
+              <div class="image-container">
+                <img 
+                  src="https://slimages.macys.com/is/image/MCY/products/${state.product?.imagery?.images?.[state.currentImageIndex]?.filePath}" 
+                  class="modern-product-image active"
+                  alt="${state.product?.detail?.name || 'Product Image'} - View ${state.currentImageIndex + 1}"
+                  @error="${handleImageError}"
+                  loading="lazy"
+                />
+                <div class="modern-image-overlay">
+                  <span class="modern-counter">
+                    <i class="f7-icons">camera</i>
+                    ${state.currentImageIndex + 1}/${state.product?.imagery?.images?.length || 0}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="modern-product-card">
+          <div class="product-header">
+            <h3>${state.product.detail?.name || 'Product Name Unavailable'}</h3>
+          </div>
+          
+          <div class="product-description">
+            ${state.product.detail?.description || 'No description available'}
+          </div>
+          
+          <div class="modern-price-section">
+            ${state.product.pricing?.price?.tieredPrice?.[0]?.values?.[0]?.formattedValue ? $h`
+              <div class="modern-price">
+                <i class="f7-icons">tag</i>
+                <span>${state.product.pricing.price.tieredPrice[0].values[0].formattedValue}</span>
+              </div>
+            ` : $h`
+              <p class="price-unavailable">
+                <i class="f7-icons">exclamationmark_circle</i>
+                Price not available
+              </p>
+            `}
+          </div>
+          
+          <a @click="${(e) => handleExternalLink(e, state.product?.url)}" class="modern-button">
+            <i class="f7-icons">bag</i>
+            Shop at Macy's
+          </a>
+        </div>
+      `}
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar tabbar modern-toolbar toolbar-bottom">
+      <div class="toolbar-inner">
+        <a href="/wardrobe/" class="tab-link">
+          <i class="f7-icons">archivebox</i>
+          <span class="tabbar-label" style="margin-left: 4px;">Wardrobe</span>
+        </a>
+        <a href="/explore/" class="tab-link tab-link-active">
+          <i class="f7-icons">compass</i>
+          <span class="tabbar-label" style="margin-left: 4px">Explore</span>
+        </a>
+        <a href="/virtual-tryon/" class="tab-link">
+          <i class="f7-icons">sparkles</i>
+          <span class="tabbar-label" style="margin-left: 2px">Try On</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default (props, { $f7, $on, $update }) => {
+  const preferencesData = [
+    { title: 'Price Range', value: 50 },
+    { title: 'Style Match', value: 50 },
+    { title: 'Size Preference', value: 50 },
+    { title: 'Brand Priority', value: 50 }
+  ];
+
+  const state = {
+    products: [],
+    currentProductIndex: 0,
+    product: null,
+    loading: true,
+    error: null,
+    currentImageIndex: 0
+  };
+  const handleExternalLink = (e, url) => {
+    e.preventDefault();
+    console.log('Opening URL:', url);
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+  const handleImageError = (event) => {
+    event.target.src = '/path/to/fallback-image.jpg';
+    event.target.classList.add('image-error');
+  };
+
+  const handleImageNavigation = (direction) => {
+    // Stop event propagation
+    event.stopPropagation();
+    event.preventDefault();
+    
+    if (!state.product?.imagery?.images) return;
+    
+    const totalImages = state.product.imagery.images.length;
+    if (direction === 'next') {
+      state.currentImageIndex = (state.currentImageIndex + 1) % totalImages;
+    } else {
+      state.currentImageIndex = (state.currentImageIndex - 1 + totalImages) % totalImages;
+    }
+    $update();
+  };
+
+  const handleSettings = () => {
+    $f7.panel.close();
+  };
+
+  const handleLogout = () => {
+    $f7.panel.close();
+  };
+
+  const loadProducts = async () => {
+    try {
+      state.loading = true;
+      state.error = null;
+      $update();
+
+      // Fetch products from JSON file
+      const response = await fetch('../data/fetchedProducts.json');
+      if (!response.ok) {
+        throw new Error('Failed to fetch products data');
+      }
+      const data = await response.json();
+      state.products = data.products;
+
+      if (state.products.length === 0) {
+        throw new Error('No products available');
+      }
+
+      // Set initial state
+      state.currentProductIndex = 0;
+      state.product = state.products[0];
+      state.currentImageIndex = 0;
+
+      // Initialize swipe handlers only after product is loaded
+      setTimeout(() => {
+        if (state.product) {
+          const cleanup = initializeSwipeHandlers();
+          if (cleanup) {
+            $on('pageBeforeRemove', cleanup);
+          }
+        }
+      }, 100);
+
+    } catch (err) {
+      state.error = `Error loading products: ${err.message}`;
+      console.error('Product loading error:', err);
+    } finally {
+      state.loading = false;
+      $update();
+    }
+  };
+
+  const handleSwipe = (direction) => {
+      const totalProducts = state.products.length;
+      if (totalProducts === 0) return;
+
+      // Get current product before any state changes
+      const currentProduct = {...state.products[state.currentProductIndex]};  // Create a copy
+
+      if (direction === 'right') {
+          // Save to wardrobe in localStorage
+          try {
+              const existingWardrobe = JSON.parse(localStorage.getItem('wardrobe') || '[]');
+              
+              // Check if item the already exists in wardrobe
+              const isDuplicate = existingWardrobe.some(item => 
+                  item.id === currentProduct.id || 
+                  (item.detail?.name === currentProduct.detail?.name && 
+                  item.pricing?.price?.tieredPrice?.[0]?.values?.[0]?.formattedValue === 
+                  currentProduct.pricing?.price?.tieredPrice?.[0]?.values?.[0]?.formattedValue)
+              );
+              
+              if (!isDuplicate) {
+                  // Add thecurrent product to wardrobe
+                  const itemToSave = {
+                      ...currentProduct,
+                      id: currentProduct.id || `${Date.now()}-${Math.random()}`, // with amore unique ID
+                      savedAt: new Date().toISOString()
+                  };
+                  
+                  existingWardrobe.push(itemToSave);
+                  localStorage.setItem('wardrobe', JSON.stringify(existingWardrobe));
+                  
+                  // Show success toast below
+                  $f7.toast.create({
+                      text: 'Saved to Wardrobe',
+                      position: 'bottom',
+                      closeTimeout: 1000
+                  }).open();
+              } else {
+                  // !!this has an issue!!: notify user item is already in wardrobe
+                  $f7.toast.create({
+                      text: 'Item is saved in wardrobe',
+                      position: 'bottom',
+                      closeTimeout: 1000
+                  }).open();
+              }
+          } catch (err) {
+              console.error('Error saving to wardrobe:', err);
+              $f7.toast.create({
+                  text: 'Failed to save item',
+                  position: 'bottom',
+                  closeTimeout: 1000
+              }).open();
+          }
+      }
+
+      // Move to next product when after saving is complete
+      setTimeout(() => {
+          state.currentProductIndex = (state.currentProductIndex + 1) % totalProducts;
+          state.product = state.products[state.currentProductIndex];
+          state.currentImageIndex = 0;
+          $update();
+      }, 0);
+  };
+
+  const initializeSwipeHandlers = () => {
+      setTimeout(() => {
+        const productCard = document.querySelector('.modern-product-card');
+        if (!productCard) {
+          console.error('Product card not found');
+          return;
+        }
+
+        const swipeableArea = document.createElement('div');
+        swipeableArea.className = 'swipeable-area';
+
+        while (productCard.firstChild) {
+          const child = productCard.firstChild;
+          if (!child.classList || !child.classList.contains('modern-button')) {
+            swipeableArea.appendChild(child);
+          } else {
+            break;
+          }
+        }
+
+        productCard.insertBefore(swipeableArea, productCard.querySelector('.modern-button'));
+
+        let startX = 0;
+        let startY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        let isDragging = false;
+        const threshold = 10;
+
+        const swipeOverlay = document.createElement('div');
+        swipeOverlay.className = 'swipe-overlay';
+        swipeOverlay.innerHTML = `
+          <div class="swipe-left">
+            <i class="f7-icons">hand_thumbsdown_fill</i>
+          </div>
+          <div class="swipe-right">
+            <i class="f7-icons">hand_thumbsup_fill</i>
+          </div>
+        `;
+        swipeableArea.appendChild(swipeOverlay);
+
+        const handleTouchStart = (e) => {
+          const touch = e.type === 'mousedown' ? e : e.touches[0];
+          startX = touch.clientX;
+          startY = touch.clientY;
+          isDragging = true;
+          productCard.style.transition = 'none';
+          swipeableArea.style.cursor = 'grabbing';
+          e.preventDefault();
+        };
+
+        const handleTouchMove = (e) => {
+          if (!isDragging) return;
+          
+          const touch = e.type === 'mousemove' ? e : e.touches[0];
+          currentX = touch.clientX;
+          currentY = touch.clientY;
+          
+          const deltaX = currentX - startX;
+          const deltaY = currentY - startY;
+          
+          if (Math.abs(deltaY) > Math.abs(deltaX)) {
+            isDragging = false;
+            return;
+          }
+          
+          e.preventDefault();
+          productCard.style.transform = `translateX(${deltaX}px)`;
+          
+          const opacity = Math.min(Math.abs(deltaX) / threshold, 1);
+          if (deltaX < 0) {
+            swipeableArea.querySelector('.swipe-left').style.opacity = opacity;
+            swipeableArea.querySelector('.swipe-right').style.opacity = 0;
+          } else {
+            swipeableArea.querySelector('.swipe-right').style.opacity = opacity;
+            swipeableArea.querySelector('.swipe-left').style.opacity = 0;
+          }
+        };
+
+        const handleTouchEnd = (e) => {
+          if (!isDragging) return;
+          
+          isDragging = false;
+          productCard.style.transition = 'transform 0.3s ease';
+          swipeableArea.style.cursor = 'grab';
+          
+          const deltaX = currentX - startX;
+          
+          if (!handleTouchEnd.swiping && Math.abs(deltaX) >= threshold) {
+              handleTouchEnd.swiping = true;
+              const direction = deltaX > 0 ? 1 : -1;
+              
+              // !! this has an issue!!: slide current card out
+              productCard.style.transform = `translateX(${direction * window.innerWidth}px)`;
+              
+              setTimeout(() => {
+                  handleSwipe(deltaX > 0 ? 'right' : 'left');
+                  
+                  // Reset position instantly without animation
+                  productCard.style.transition = 'none';
+                  // !!this has an issue!!: when swiping left (direction is -1), start from right side (positive width)
+                  // !!this has an issue!!: when swiping right (direction is 1), start from left side (negative width)
+                  productCard.style.transform = `translateX(${direction * window.innerWidth * -1}px)`;
+                  
+                  swipeableArea.querySelector('.swipe-left').style.opacity = 0;
+                  swipeableArea.querySelector('.swipe-right').style.opacity = 0;
+                  
+                  requestAnimationFrame(() => {
+                      productCard.style.transition = 'transform 0.3s ease';
+                      productCard.style.transform = 'translateX(0)';
+                      handleTouchEnd.swiping = false;
+                  });
+              }, 300);
+          } else {
+              productCard.style.transform = 'translateX(0)';
+              swipeableArea.querySelector('.swipe-left').style.opacity = 0;
+              swipeableArea.querySelector('.swipe-right').style.opacity = 0;
+          }
+      };
+
+        swipeableArea.addEventListener('touchstart', handleTouchStart, { passive: false });
+        swipeableArea.addEventListener('mousedown', handleTouchStart);
+        document.addEventListener('touchmove', handleTouchMove, { passive: false });
+        document.addEventListener('mousemove', handleTouchMove);
+        document.addEventListener('touchend', handleTouchEnd);
+        document.addEventListener('mouseup', handleTouchEnd);
+
+        return () => {
+          swipeableArea.removeEventListener('touchstart', handleTouchStart);
+          swipeableArea.removeEventListener('mousedown', handleTouchStart);
+          document.removeEventListener('touchmove', handleTouchMove);
+          document.removeEventListener('mousemove', handleTouchMove);
+          document.removeEventListener('touchend', handleTouchEnd);
+          document.removeEventListener('mouseup', handleTouchEnd);
+        };
+      }, 100);
+  };
+
+  $on('pageInit pageReinit', () => {
+    // Reset state first
+    state.products = [];
+    state.currentProductIndex = 0;
+    state.product = null;
+    state.loading = true;
+    state.error = null;
+    state.currentImageIndex = 0;
+    
+    loadProducts();
+    const cleanup = initializeSwipeHandlers();
+
+    $on('pageBeforeRemove', () => {
+      if (cleanup) cleanup();
+    });
+  });
+  return $render;
+};
+</script>
+
+
+<style>
+/* UI Design Primary Stule */
+:root {
+  --primary-color: #72b5fd;
+  --secondary-color: #5856D6;
+  --success-color: #34C759;
+  --warning-color: #FF9500;
+  --danger-color: #FF3B30;
+  --background-color: #F2F2F7;
+  --card-background: #FFFFFF;
+  --text-primary: #000000;
+  --text-secondary: #6d6d6d;
+  --border-radius: 16px;
+  --spacing-unit: 8px;
+}
+
+.navbar .navbar-logo {
+  align-items: center;
+  width: 40%;
+  height: 40%;
+  justify-content: center;
+}
+
+
+/* Image Navigation Buttons */
+.image-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: auto;
+}
+
+.image-nav-prev {
+  left: 16px; 
+}
+
+.image-nav-next {
+  right: 16px; 
+}
+
+.image-nav-button:hover {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modern-swiper-container {
+  position: relative;
+  margin-top: -44px; 
+  padding-top: 44px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  overflow: visible !important;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* .modern-swiper-container {
+  position: relative;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  border-radius: var(--border-radius);
+  overflow: visible !important;
+} */
+
+.modern-product-image {
+  margin-top: 10%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.modern-swiper-container:hover .image-nav-button {
+  opacity: 1;
+}
+
+
+.swipeable-card {
+  position: relative;
+  z-index: 1;
+}
+
+.swipeable-card:active {
+  cursor: grabbing;
+}
+
+.swipe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 calc(var(--spacing-unit) * 2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.swipe-left, .swipe-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  font-weight: 600;
+  padding: calc(var(--spacing-unit) * 2);
+  border-radius: var(--border-radius);
+}
+
+.swipe-left .f7-icons {
+  color: rgba(158, 0, 216, 0.5); 
+  font-size: 48px;
+  margin-bottom: 8px;
+  text-shadow: none;
+}
+.swipe-right .f7-icons {
+  color: rgba(0, 116, 255, 0.5); 
+  font-size: 48px;
+  margin-bottom: 8px;
+  text-shadow: none;
+}
+
+/* Additional transition the imag changes
+.modern-product-image {
+  margin-top: 10%;
+  width: 95%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+} */
+
+.modern-product-image.changing {
+  opacity: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: transparent !important;
+  z-index: 100;
+}
+
+.navbar .navbar-bg {
+  background: rgba(255, 255, 255, 0.6) !important; 
+}
+
+.navbar .navbar-inner {
+  background: transparent;
+}
+/* Logo stylings */
+.navbar-logo {
+  height: 24px;
+  width: auto;
+}
+
+.navbar .title {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+.navbar .title, 
+.navbar .f7-icons,
+.navbar .link {
+  color: rgba(0, 0, 0, 0.9);
+}
+/* Content Styles */
+.modern-content {
+  background-color: var(--background-color);
+  padding: var(--spacing-unit) * 2;
+}
+
+/* F7 Icons */
+.f7-icons {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.toolbar .f7-icons {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+
+.action-button .f7-icons {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+
+.modern-counter .f7-icons {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+}
+
+/* Loading States */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.preloader-ring {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--primary-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-container {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 3);
+  text-align: center;
+  color: var(--danger-color);
+}
+
+.modern-image-card {
+  position: relative;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.modern-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: calc(var(--spacing-unit) * 2);
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  z-index: 2; 
+}
+
+/* Product Card */
+.modern-product-card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  position: relative;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  cursor: grab;
+  will-change: transform;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+.modern-product-card:active {
+  cursor: grabbing;
+}
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.product-header h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.product-actions {
+  display: flex;
+  gap: var(--spacing-unit);
+}
+
+.action-button:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.product-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: calc(var(--spacing-unit) * 1);
+}
+
+.modern-price-section {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-top: calc(var(--spacing-unit) * 3);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.modern-price {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-unit);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.price-unavailable {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-unit);
+  color: var(--text-secondary);
+}
+
+.modern-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 21.7%;
+  margin-top: calc(var(--spacing-unit) * 4);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  gap: var(--spacing-unit);
+  background: #238dff;
+  color: white;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  border-radius: calc(var(--border-radius) / 2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 50%;
+  z-index: 12;
+}
+
+.modern-button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
+}
+
+/* Toolbar */
+.toolbar.tabbar.modern-toolbar {
+  background: rgb(0, 0, 0) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.toolbar.tabbar.modern-toolbar .toolbar-inner {
+  background: rgb(40, 40, 40);
+  padding: var(--spacing-unit * 4);
+}
+
+.modern-toolbar .tab-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: calc(var(--spacing-unit)/10);
+  color: rgb(245, 245, 245);
+  transition: all 0.3s ease;
+}
+
+.modern-toolbar .tab-link.tab-link-active {
+  color: var(--primary-color);
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: calc(var(--spacing-unit) * 2);
+  color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .modern-product-card {
+    margin-bottom: 70px;
+  }
+}
+
+@media (min-width: 768px) {
+  .modern-swiper-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .modern-product-card {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+.swipe-left .f7-icons, .swipe-right .f7-icons {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.swipeable-area {
+  position: relative;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  cursor: grab;
+  will-change: transform;
+}
+
+.swipeable-area:active {
+  cursor: grabbing;
+}
+
+</style>

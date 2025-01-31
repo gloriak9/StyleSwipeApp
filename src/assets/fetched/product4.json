@@ -1,0 +1,784 @@
+{
+    "status": "success",
+    "data": {
+        "id": 18678977,
+        "identifier": {
+            "productUrl": "/shop/product/mode-of-one-mens-woven-cardigan-exclusively-at-macys?ID=18678977",
+            "productId": 18678977
+        },
+        "department": {
+            "departmentId": 435,
+            "departmentName": "MODE OF ONE"
+        },
+        "messages": {
+            "info": [
+                {}
+            ]
+        },
+        "detail": {
+            "name": "Men's Woven Cardigan, Exclusively at Macy's",
+            "description": "Soft woven fabric and a relaxed fit make this Mode of One plaid cardigan extra cozy. ABOUT THE BRAND: Mode of One is designed for the individual who sees style as a powerful tool for self-expression. ",
+            "secondaryDescription": "",
+            "seoKeywords": "Mode of One, Mode of One Men's Woven Cardigan, Exclusively at Macy's",
+            "flags": {
+                "chanel": false,
+                "hermes": false,
+                "coach": false,
+                "hasWarranty": false,
+                "bigTicketItem": false,
+                "phoneOnly": false,
+                "registrable": true,
+                "masterProduct": false,
+                "memberProduct": false,
+                "gwpIndicator": true,
+                "truefitEligible": true,
+                "fitPredictorEligible": false,
+                "isStoreOnlyProductOnline": false,
+                "eligibleForPreOrder": false,
+                "countryEligible": true,
+                "hasColors": true,
+                "rebates": false,
+                "giftCard": false,
+                "suppressColorSwatches": false,
+                "hasColorSwatches": true,
+                "beauty": false,
+                "hasAdditionalImages": true,
+                "bigTicketV2CItem": false,
+                "onlineExclusive": false,
+                "storeOnlySpecial": false,
+                "finishLine": false,
+                "sitewidesale": true,
+                "protectionPlanEligible": false,
+                "bannerForKidsChokeHazard": false,
+                "sizePersistForMen": false,
+                "bigTicketDeliveryFeeRestructureEligible": true,
+                "dimensionsCopyGroupEnabled": false,
+                "materialCareSectionEnabled": false,
+                "sizeAndFitEnabled": false,
+                "arBeauty": false,
+                "arFurniture": false,
+                "virtualTryOn": false,
+                "experience3D": false,
+                "experience360": false,
+                "backInStockOptOut": false,
+                "consolidatedProductComplex": false,
+                "writeAReviewRedesignExpEnabled": false,
+                "siteMonetizationProduct": true,
+                "consolidatedMaster": false,
+                "processedProdDesc": false,
+                "esecRemoveSecureUserTokenQueryParamEnabled": true,
+                "pickUpStore": true,
+                "hasCustomColors": false,
+                "seeMoreExperienceEnabled": false,
+                "seeMoreAndSizeChartExperienceEnabled": false,
+                "sizeChartExperienceEnabled": false,
+                "gwpExperienceEnabled": false,
+                "bcomsyndigoEnabled": false,
+                "styleMeEnabled": false,
+                "zeekitEnabled": false,
+                "altModelSizesExperimentEnabled": false,
+                "PDPColorized": false,
+                "isEligibleForColorwayPromoBadging": false,
+                "isFewLeftMessageRedesignEnabled": true,
+                "isTrueFitSizeAutoSelectEnabled": true,
+                "klarnaEligible": true,
+                "modiFaceEligible": false,
+                "isPdpBVReviewFormUpdatesEnabled": true,
+                "phase2DesktopBVApiTrt1Enabled": false,
+                "phase2DesktopBVApiTrt2Enabled": false,
+                "phase2MobileBVApiTrt1Enabled": false,
+                "homeFOB": false,
+                "isFindationEnabled": false,
+                "isNew": true,
+                "isReviewPhotosUploadEnabled": true,
+                "isWebCollageOutFromTabs": true,
+                "isVideoImageRailEnabled": true,
+                "isTrueCollectionsEnabled": false,
+                "isConsolidatedThirdVariant": false,
+                "isSplitThirdVariant": false,
+                "is3VSizeDrivenConsolidated": false,
+                "is3VTypeDrivenConsolidated": false,
+                "isReviewsPage": false,
+                "isBeautyGiftSet": false,
+                "isMarketPlaceEligible": false,
+                "isBestSeller": false
+            },
+            "reviewStatistics": {
+                "aggregate": {
+                    "rating": 4.4286,
+                    "ratingPercentage": 89,
+                    "count": 7
+                }
+            },
+            "questionAnswer": {
+                "questionCount": 0,
+                "answerCount": 0
+            },
+            "orderedMasterGroupList": [],
+            "memberDisplayGroupsMap": {},
+            "bulletText": [
+                "Relaxed fit",
+                "Approx. 29-1/2\" long",
+                "V-neck; front button closures",
+                "Two front patch pockets",
+                "Soft woven fabrication; allover pattern",
+                "Long sleeves",
+                "Exclusively at Macy's",
+                "100% polyester",
+                "Dry clean"
+            ],
+            "maxQuantity": 12,
+            "typeName": "SWEATER",
+            "additionalImagesCount": 9,
+            "numberOfColors": 1,
+            "brand": {
+                "name": "Mode of One",
+                "id": 125401,
+                "url": "/shop/featured/mode-of-one",
+                "subBrand": "",
+                "brandBreakout": true
+            },
+            "bulletLinks": [],
+            "pdfEmailDescription": "Men's Woven Cardigan",
+            "skinCareType": "",
+            "memberProductCount": 0,
+            "completeName": "Mode of One Men's Woven Cardigan, Exclusively at Macy's",
+            "klarna": {
+                "klarnaDataClientId": "8561a670-d195-5128-9ab7-b4c9ec7ec2fb",
+                "klarnaOnsiteJsSdkPath": "https://na-library.klarnaservices.com/lib.js"
+            },
+            "salesFloorBrand": {
+                "salesFloorBrandUrl": "",
+                "salesFloorBrand": false
+            }
+        },
+        "shipping": {
+            "notes": [
+                "Enjoy a longer window to return most of your holiday purchases. See our Extended Holiday Return Policy to see if this item qualifies.",
+                "California and Minnesota customers call 1-800-289-6229 for Free Shipping information.",
+                "Returns are accepted at any Macy's store within 30 days from purchase date. Last Act items are final sale and sold \"as is.\" No returns, exchanges, or price adjustments allowed."
+            ],
+            "freeShippingMessages": [
+                "This item qualifies for Free Shipping with minimum purchase!"
+            ]
+        },
+        "relationships": {
+            "taxonomy": {
+                "defaultCategoryId": 4286
+            },
+            "upcs": {
+                "53935786": {
+                    "id": 53935786,
+                    "identifier": {
+                        "upcNumber": "194145924441"
+                    },
+                    "department": {
+                        "departmentId": 435,
+                        "departmentName": "MODE OF ONE"
+                    },
+                    "classCode": 80,
+                    "subClassCode": 12341,
+                    "vendorCode": 5,
+                    "markStyleCode": "70237",
+                    "messages": {
+                        "info": [
+                            {}
+                        ]
+                    },
+                    "relationships": {},
+                    "availability": {
+                        "checkInStoreEligibility": true,
+                        "available": true,
+                        "shipDays": 2,
+                        "message": "Usually ships within 2 business days.",
+                        "availabilityMessage": "In Stock",
+                        "lowAvailability": false,
+                        "orderType": "POOL",
+                        "bopsAvailability": false,
+                        "bossAvailability": false,
+                        "storeAvailability": false,
+                        "shipFees": {
+                            "standard": 0,
+                            "premium": 10,
+                            "express": 15
+                        }
+                    },
+                    "deliveryDays": {
+                        "standardDeliveryDays": 8,
+                        "premiumDeliveryDays": 4,
+                        "expressDeliveryDays": 3,
+                        "noHurryDeliveryDays": 11,
+                        "bossDeliveryDays": 8
+                    },
+                    "traits": {
+                        "colors": {
+                            "selectedColor": 9550802
+                        },
+                        "sizes": {
+                            "selectedSize": 0
+                        }
+                    },
+                    "protectionPlans": [],
+                    "holidayMessageEligible": false,
+                    "marketplaceFlag": false
+                },
+                "53935788": {
+                    "id": 53935788,
+                    "identifier": {
+                        "upcNumber": "194145924458"
+                    },
+                    "department": {
+                        "departmentId": 435,
+                        "departmentName": "MODE OF ONE"
+                    },
+                    "classCode": 80,
+                    "subClassCode": 12341,
+                    "vendorCode": 5,
+                    "markStyleCode": "70237",
+                    "messages": {
+                        "info": [
+                            {}
+                        ]
+                    },
+                    "relationships": {},
+                    "availability": {
+                        "checkInStoreEligibility": true,
+                        "available": true,
+                        "shipDays": 2,
+                        "message": "Usually ships within 2 business days.",
+                        "availabilityMessage": "In Stock",
+                        "lowAvailability": false,
+                        "orderType": "POOL",
+                        "bopsAvailability": false,
+                        "bossAvailability": false,
+                        "storeAvailability": false,
+                        "shipFees": {
+                            "standard": 0,
+                            "premium": 10,
+                            "express": 15,
+                            "sameDay": 15
+                        }
+                    },
+                    "deliveryDays": {
+                        "standardDeliveryDays": 8,
+                        "premiumDeliveryDays": 4,
+                        "expressDeliveryDays": 3,
+                        "noHurryDeliveryDays": 11,
+                        "bossDeliveryDays": 8
+                    },
+                    "traits": {
+                        "colors": {
+                            "selectedColor": 9550802
+                        },
+                        "sizes": {
+                            "selectedSize": 1
+                        }
+                    },
+                    "protectionPlans": [],
+                    "holidayMessageEligible": false,
+                    "marketplaceFlag": false
+                },
+                "53935805": {
+                    "id": 53935805,
+                    "identifier": {
+                        "upcNumber": "194145924465"
+                    },
+                    "department": {
+                        "departmentId": 435,
+                        "departmentName": "MODE OF ONE"
+                    },
+                    "classCode": 80,
+                    "subClassCode": 12341,
+                    "vendorCode": 5,
+                    "markStyleCode": "70237",
+                    "messages": {
+                        "info": [
+                            {}
+                        ]
+                    },
+                    "relationships": {},
+                    "availability": {
+                        "checkInStoreEligibility": true,
+                        "available": true,
+                        "shipDays": 2,
+                        "message": "Usually ships within 2 business days.",
+                        "availabilityMessage": "In Stock",
+                        "lowAvailability": false,
+                        "orderType": "POOL",
+                        "bopsAvailability": false,
+                        "bossAvailability": false,
+                        "storeAvailability": false,
+                        "shipFees": {
+                            "standard": 0,
+                            "premium": 10,
+                            "express": 15
+                        }
+                    },
+                    "deliveryDays": {
+                        "standardDeliveryDays": 8,
+                        "premiumDeliveryDays": 4,
+                        "expressDeliveryDays": 3,
+                        "noHurryDeliveryDays": 11,
+                        "bossDeliveryDays": 8
+                    },
+                    "traits": {
+                        "colors": {
+                            "selectedColor": 9550802
+                        },
+                        "sizes": {
+                            "selectedSize": 2
+                        }
+                    },
+                    "protectionPlans": [],
+                    "holidayMessageEligible": false,
+                    "marketplaceFlag": false
+                },
+                "53935823": {
+                    "id": 53935823,
+                    "identifier": {
+                        "upcNumber": "194145924472"
+                    },
+                    "department": {
+                        "departmentId": 435,
+                        "departmentName": "MODE OF ONE"
+                    },
+                    "classCode": 80,
+                    "subClassCode": 12341,
+                    "vendorCode": 5,
+                    "markStyleCode": "70237",
+                    "messages": {
+                        "info": [
+                            {}
+                        ]
+                    },
+                    "relationships": {},
+                    "availability": {
+                        "checkInStoreEligibility": true,
+                        "available": true,
+                        "shipDays": 2,
+                        "message": "Usually ships within 2 business days.",
+                        "availabilityMessage": "In Stock",
+                        "lowAvailability": false,
+                        "orderType": "POOL",
+                        "bopsAvailability": false,
+                        "bossAvailability": false,
+                        "storeAvailability": false,
+                        "shipFees": {
+                            "standard": 0,
+                            "premium": 10,
+                            "express": 15,
+                            "sameDay": 15
+                        }
+                    },
+                    "deliveryDays": {
+                        "standardDeliveryDays": 8,
+                        "premiumDeliveryDays": 4,
+                        "expressDeliveryDays": 3,
+                        "noHurryDeliveryDays": 11,
+                        "bossDeliveryDays": 8
+                    },
+                    "traits": {
+                        "colors": {
+                            "selectedColor": 9550802
+                        },
+                        "sizes": {
+                            "selectedSize": 3
+                        }
+                    },
+                    "protectionPlans": [],
+                    "holidayMessageEligible": false,
+                    "marketplaceFlag": false
+                },
+                "53935834": {
+                    "id": 53935834,
+                    "identifier": {
+                        "upcNumber": "194145924489"
+                    },
+                    "department": {
+                        "departmentId": 435,
+                        "departmentName": "MODE OF ONE"
+                    },
+                    "classCode": 80,
+                    "subClassCode": 12341,
+                    "vendorCode": 5,
+                    "markStyleCode": "70237",
+                    "messages": {
+                        "info": [
+                            {}
+                        ]
+                    },
+                    "relationships": {},
+                    "availability": {
+                        "checkInStoreEligibility": true,
+                        "available": true,
+                        "shipDays": 3,
+                        "message": "Usually ships within 3 business days.",
+                        "availabilityMessage": "In Stock",
+                        "lowAvailability": false,
+                        "orderType": "STR1",
+                        "bopsAvailability": false,
+                        "bossAvailability": false,
+                        "storeAvailability": false,
+                        "shipFees": {
+                            "standard": 0,
+                            "premium": 10,
+                            "express": 15
+                        }
+                    },
+                    "deliveryDays": {
+                        "standardDeliveryDays": 8,
+                        "premiumDeliveryDays": 4,
+                        "expressDeliveryDays": 3,
+                        "noHurryDeliveryDays": 11
+                    },
+                    "traits": {
+                        "colors": {
+                            "selectedColor": 9550802
+                        },
+                        "sizes": {
+                            "selectedSize": 4
+                        }
+                    },
+                    "protectionPlans": [],
+                    "holidayMessageEligible": false,
+                    "marketplaceFlag": false
+                }
+            }
+        },
+        "imagery": {
+            "images": [
+                {
+                    "filePath": "9/optimized/29766279_fpx.tif",
+                    "name": "29766279.fpx",
+                    "showJumboSwatch": false,
+                    "swatchSpriteOffset": 0,
+                    "swatchSpriteUrlIndex": 0
+                },
+                {
+                    "filePath": "0/optimized/29766280_fpx.tif",
+                    "name": "29766280.fpx",
+                    "showJumboSwatch": false,
+                    "swatchSpriteOffset": 62,
+                    "swatchSpriteUrlIndex": 0
+                },
+                {
+                    "filePath": "8/optimized/30074158_fpx.tif",
+                    "name": "30074158.fpx",
+                    "showJumboSwatch": false,
+                    "swatchSpriteOffset": 124,
+                    "swatchSpriteUrlIndex": 0
+                },
+                {
+                    "filePath": "7/optimized/30074157_fpx.tif",
+                    "name": "30074157.fpx",
+                    "showJumboSwatch": false,
+                    "swatchSpriteOffset": 186,
+                    "swatchSpriteUrlIndex": 0
+                },
+                {
+                    "filePath": "0/optimized/30074160_fpx.tif",
+                    "name": "30074160.fpx",
+                    "showJumboSwatch": false,
+                    "swatchSpriteOffset": 248,
+                    "swatchSpriteUrlIndex": 0
+                },
+                {
+                    "filePath": "9/optimized/30074159_fpx.tif",
+                    "name": "30074159.fpx",
+                    "showJumboSwatch": false,
+                    "swatchSpriteOffset": 310,
+                    "swatchSpriteUrlIndex": 0
+                }
+            ],
+            "smallImagesSprites": {
+                "spriteUrls": [
+                    "?&$b=MCY/swatches/&hei=75&wid=372&cropN=0,0,6,1&resMode=sharp2&fmt=jpeg&qlt=100,0&layer=0&size=372,75&anchor=0,0&layer=1&size=60,75&src=is{$b$9/optimized/29766279_fpx.tif}&anchor=0,0&posN=0.000000,0&layer=2&size=60,75&src=is{$b$0/optimized/29766280_fpx.tif}&anchor=0,0&posN=0.166667,0&layer=3&size=60,75&src=is{$b$8/optimized/30074158_fpx.tif}&anchor=0,0&posN=0.333333,0&layer=4&size=60,75&src=is{$b$7/optimized/30074157_fpx.tif}&anchor=0,0&posN=0.500000,0&layer=5&size=60,75&src=is{$b$0/optimized/30074160_fpx.tif}&anchor=0,0&posN=0.666667,0&layer=6&size=60,75&src=is{$b$9/optimized/30074159_fpx.tif}&anchor=0,0&posN=0.833333,0"
+                ],
+                "imagesWidth": 60,
+                "imagesHeight": 75,
+                "imagesPerSprite": 16
+            }
+        },
+        "availability": {
+            "checkInStoreEligibility": false,
+            "available": true,
+            "lowAvailability": false,
+            "bopsAvailability": false,
+            "bossAvailability": false,
+            "storeAvailability": false
+        },
+        "traits": {
+            "colors": {
+                "selectedColor": 9550802,
+                "colorMap": {
+                    "9550802": {
+                        "id": 9550802,
+                        "name": "Voltage Orange",
+                        "normalName": "Orange",
+                        "swatchImage": {
+                            "filePath": "1/optimized/30074161_fpx.tif",
+                            "name": "30074161.fpx",
+                            "showJumboSwatch": false,
+                            "swatchSpriteOffset": 0,
+                            "swatchSpriteUrlIndex": 0
+                        },
+                        "imagery": {
+                            "images": [
+                                {
+                                    "filePath": "9/optimized/29766279_fpx.tif",
+                                    "name": "29766279.fpx",
+                                    "showJumboSwatch": false,
+                                    "swatchSpriteOffset": 0,
+                                    "swatchSpriteUrlIndex": 0
+                                },
+                                {
+                                    "filePath": "0/optimized/29766280_fpx.tif",
+                                    "name": "29766280.fpx",
+                                    "showJumboSwatch": false,
+                                    "swatchSpriteOffset": 62,
+                                    "swatchSpriteUrlIndex": 0
+                                },
+                                {
+                                    "filePath": "8/optimized/30074158_fpx.tif",
+                                    "name": "30074158.fpx",
+                                    "showJumboSwatch": false,
+                                    "swatchSpriteOffset": 124,
+                                    "swatchSpriteUrlIndex": 0
+                                },
+                                {
+                                    "filePath": "7/optimized/30074157_fpx.tif",
+                                    "name": "30074157.fpx",
+                                    "showJumboSwatch": false,
+                                    "swatchSpriteOffset": 186,
+                                    "swatchSpriteUrlIndex": 0
+                                },
+                                {
+                                    "filePath": "0/optimized/30074160_fpx.tif",
+                                    "name": "30074160.fpx",
+                                    "showJumboSwatch": false,
+                                    "swatchSpriteOffset": 248,
+                                    "swatchSpriteUrlIndex": 0
+                                },
+                                {
+                                    "filePath": "9/optimized/30074159_fpx.tif",
+                                    "name": "30074159.fpx",
+                                    "showJumboSwatch": false,
+                                    "swatchSpriteOffset": 310,
+                                    "swatchSpriteUrlIndex": 0
+                                }
+                            ],
+                            "smallImagesSprites": {
+                                "spriteUrls": [
+                                    "?&$b=MCY/swatches/&hei=75&wid=372&cropN=0,0,6,1&resMode=sharp2&fmt=jpeg&qlt=100,0&layer=0&size=372,75&anchor=0,0&layer=1&size=60,75&src=is{$b$9/optimized/29766279_fpx.tif}&anchor=0,0&posN=0.000000,0&layer=2&size=60,75&src=is{$b$0/optimized/29766280_fpx.tif}&anchor=0,0&posN=0.166667,0&layer=3&size=60,75&src=is{$b$8/optimized/30074158_fpx.tif}&anchor=0,0&posN=0.333333,0&layer=4&size=60,75&src=is{$b$7/optimized/30074157_fpx.tif}&anchor=0,0&posN=0.500000,0&layer=5&size=60,75&src=is{$b$0/optimized/30074160_fpx.tif}&anchor=0,0&posN=0.666667,0&layer=6&size=60,75&src=is{$b$9/optimized/30074159_fpx.tif}&anchor=0,0&posN=0.833333,0"
+                                ],
+                                "imagesWidth": 60,
+                                "imagesHeight": 75,
+                                "imagesPerSprite": 16
+                            },
+                            "primaryImage": {
+                                "filePath": "9/optimized/29766279_fpx.tif",
+                                "name": "29766279.fpx",
+                                "showJumboSwatch": false,
+                                "swatchSpriteOffset": 0,
+                                "swatchSpriteUrlIndex": 0
+                            }
+                        },
+                        "sizes": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4
+                        ],
+                        "pricing": {
+                            "price": {
+                                "priceType": {
+                                    "text": "Limited-Time Special",
+                                    "onEdv": false,
+                                    "onSale": true,
+                                    "upcOnSale": false,
+                                    "upcOnEdv": false,
+                                    "memberProductOnSale": false,
+                                    "willBe": false,
+                                    "saleEnds": "Sale ends 1/20/25",
+                                    "applicableToAllUpcs": true,
+                                    "selectItemsOnSale": false,
+                                    "isMasterNonRanged": false
+                                },
+                                "policy": {
+                                    "text": "\"Regular\" (REG.) and \"Original\" (ORIG.) prices are offering prices. That means we offered the merchandise in our stores or on macys.com at those prices; however, we may not have sold the item at that price. So, the savings we show from these prices may not be based on actual sales of the item. Some \"Original\" (ORIG.) prices may not have been in effect during the past 90 days.",
+                                    "url": "/catalog/product/pricingpolicy.ognc?fpriceTypeId=24&daysInC=20106&ID=18678977"
+                                },
+                                "tieredPrice": [
+                                    {
+                                        "label": "Reg. [PRICE]",
+                                        "values": [
+                                            {
+                                                "value": 89.5,
+                                                "formattedValue": "$89.50",
+                                                "type": "regular"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "label": "Sale [PRICE]",
+                                        "values": [
+                                            {
+                                                "value": 53.7,
+                                                "formattedValue": "$53.70",
+                                                "type": "discount",
+                                                "percentOff": [
+                                                    40
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "priceTypeId": 24
+                            }
+                        }
+                    }
+                },
+                "swatchSprite": {
+                    "swatchSpriteUrls": [
+                        "?&$b=MCY/swatches/&hei=54&wid=56&cropN=0,0,1,1&resMode=sharp2&fmt=jpeg&qlt=100,0&layer=0&size=56,54&anchor=0,0&layer=1&size=54,54&src=is{$b$1/optimized/30074161_fpx.tif}&anchor=0,0&posN=0.000000,0"
+                    ],
+                    "spriteSwatchSize": 54,
+                    "swatchesPerSprite": 16
+                },
+                "orderedColorsById": [
+                    9550802
+                ],
+                "orderedColorsByName": [
+                    9550802
+                ]
+            },
+            "sizes": {
+                "orderedSizesBySeqNumber": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "sizeChartId": "241789464",
+                "sizeMap": {
+                    "0": {
+                        "id": 0,
+                        "name": "S",
+                        "displayName": "S",
+                        "colors": [
+                            9550802
+                        ]
+                    },
+                    "1": {
+                        "id": 1,
+                        "name": "M",
+                        "displayName": "M",
+                        "colors": [
+                            9550802
+                        ]
+                    },
+                    "2": {
+                        "id": 2,
+                        "name": "L",
+                        "displayName": "L",
+                        "colors": [
+                            9550802
+                        ]
+                    },
+                    "3": {
+                        "id": 3,
+                        "name": "XL",
+                        "displayName": "XL",
+                        "colors": [
+                            9550802
+                        ]
+                    },
+                    "4": {
+                        "id": 4,
+                        "name": "XXL",
+                        "displayName": "XXL",
+                        "colors": [
+                            9550802
+                        ]
+                    }
+                }
+            },
+            "traitsMaps": {
+                "upcMap": {
+                    "9550802_4": 53935834,
+                    "9550802_1": 53935788,
+                    "9550802_0": 53935786,
+                    "9550802_3": 53935823,
+                    "9550802_2": 53935805
+                },
+                "priceToColors": [
+                    {
+                        "price": "$53.70",
+                        "colorIds": [
+                            9550802
+                        ],
+                        "onSale": true
+                    }
+                ]
+            }
+        },
+        "pricing": {
+            "price": {
+                "priceType": {
+                    "text": "Limited-Time Special",
+                    "onEdv": false,
+                    "onSale": true,
+                    "upcOnSale": false,
+                    "upcOnEdv": false,
+                    "memberProductOnSale": false,
+                    "willBe": false,
+                    "saleEnds": "Sale ends 1/20/25",
+                    "applicableToAllUpcs": true,
+                    "selectItemsOnSale": false,
+                    "isMasterNonRanged": false
+                },
+                "policy": {
+                    "text": "\"Regular\" (REG.) and \"Original\" (ORIG.) prices are offering prices. That means we offered the merchandise in our stores or on macys.com at those prices; however, we may not have sold the item at that price. So, the savings we show from these prices may not be based on actual sales of the item. Some \"Original\" (ORIG.) prices may not have been in effect during the past 90 days.",
+                    "url": "/catalog/product/pricingpolicy.ognc?fpriceTypeId=24&daysInC=20106&ID=18678977"
+                },
+                "tieredPrice": [
+                    {
+                        "label": "Reg. [PRICE]",
+                        "values": [
+                            {
+                                "value": 89.5,
+                                "formattedValue": "$89.50",
+                                "type": "regular"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Sale [PRICE]",
+                        "values": [
+                            {
+                                "value": 53.7,
+                                "formattedValue": "$53.70",
+                                "type": "discount",
+                                "percentOff": [
+                                    40
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "priceTypeId": 24
+            }
+        },
+        "protectionPlans": [],
+        "urlTemplate": {
+            "swatch": "https://slimages.macysassets.com/is/image/MCY/swatches/",
+            "swatchSprite": "https://slimages.macysassets.com/is/image/MCY/",
+            "product": "https://slimages.macysassets.com/is/image/MCY/products/"
+        },
+        "holidayMessageEligible": false,
+        "url": "https://www.macys.com/shop/product/mode-of-one-mens-woven-cardigan-exclusively-at-macys?ID=18678977"
+    },
+    "message": null
+}

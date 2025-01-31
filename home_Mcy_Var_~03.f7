@@ -1,0 +1,524 @@
+<template>
+  <div class="page" data-name="home">
+    <!-- Navbar remains the same -->
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link icon-only panel-open" data-panel="left">
+            <i class="icon material-icons">menu</i>
+          </a>
+        </div>
+        <div class="title">StyleSwipe</div>
+        <div class="right">
+          <a href="#" class="link icon-only panel-open" data-panel="right">
+            <i class="icon material-icons">account_circle</i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left Panel remains the same -->
+    <div class="panel panel-left panel-reveal">
+      <div class="block-title">Preferences</div>
+      <div class="list">
+        <ul>
+          ${preferencesData.map((pref) => $h`
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">${pref.title}</div>
+                  <div class="item-after">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="100" step="1" value="${pref.value}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          `)}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right Panel remains the same -->
+    <div class="panel panel-right panel-reveal">
+      <div class="block">
+        <div class="profile-header">
+          <i class="icon material-icons profile-icon">account_circle</i>
+          <h2>User Profile</h2>
+        </div>
+        <div class="list">
+          <ul>
+            <li><a class="item-link" @click="${handleSettings}">Settings</a></li>
+            <li><a class="item-link" @click="${handleLogout}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="page-content">
+      ${state.loading ? $h`
+        <div class="block text-align-center">
+          <div class="preloader"></div>
+          <p>Loading product...</p>
+        </div>
+      ` : $h`
+        ${state.error ? $h`
+          <div class="block">
+            <div class="card">
+              <div class="card-content card-content-padding">
+                <p class="text-color-red">${state.error}</p>
+              </div>
+            </div>
+          </div>
+        ` : $h`
+          ${state.product ? $h`
+            <!-- Enhanced Product Image Viewer -->
+            <div class="swiper-container product-swiper">
+              <div class="swiper-wrapper">
+                ${state.product.imagery?.images?.map((image, index) => $h`
+                  <div class="swiper-slide">
+                    <div class="product-image-card">
+                      <div class="product-image-container">
+                        <div class="product-image-wrapper">
+                          <img 
+                            src="https://slimages.macys.com/is/image/MCY/products/${image.filePath}" 
+                            class="product-image ${state.currentImageIndex === index ? 'active' : ''}"
+                            alt="${state.product.detail.name} - View ${index + 1}"
+                            @error="${handleImageError}"
+                            loading="lazy"
+                          />
+                          <div class="image-overlay"></div>
+                          
+                          <!-- Image Counter -->
+                          <div class="image-counter">
+                            ${index + 1}/${state.product.imagery.images.length}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                `)}
+              </div>
+              
+              <!-- Navigation Arrows -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+  
+            <!-- Enhanced Thumbnail Gallery -->
+            ${state.product.imagery?.images?.length > 1 ? $h`
+              <div class="thumbnails-gallery">
+                <div class="thumbnails-scroll">
+                  ${state.product.imagery.images.map((image, index) => $h`
+                    <div 
+                      class="thumbnail-wrapper ${state.currentImageIndex === index ? 'active' : ''}"
+                      @click="${() => handleThumbnailClick(index)}"
+                    >
+                      <img 
+                        src="https://slimages.macys.com/is/image/MCY/products/${image.filePath}?&wid=60&hei=75&fit=fit,1" 
+                        class="thumbnail-image"
+                        alt="Product view ${index + 1}"
+                        @error="${handleImageError}"
+                        loading="lazy"
+                      />
+                      <div class="thumbnail-overlay"></div>
+                    </div>
+                  `)}
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- Product Info Card - remains unchanged -->
+            <div class="card product-info-card">
+              <div class="card-content card-content-padding">
+                <h3>${state.product.detail.name}</h3>
+                <div class="description">${state.product.detail.description}</div>
+                <div class="price-section">
+                  ${state.product.pricing?.price?.tieredPrice?.[1]?.values?.[0] ? $h`
+                    <p class="price">${state.product.pricing.price.tieredPrice[1].values[0].formattedValue}</p>
+                  ` : $h`
+                    <p class="price">Price not available</p>
+                  `}
+                </div>
+                <a href="${state.product.url || '#'}" target="_blank" class="button checkout-button">Shop at Macy's</a>
+              </div>
+            </div>
+          ` : ''}
+        `}
+      `}
+    </div>
+
+    <!-- Toolbar remains the same -->
+    <div class="toolbar tabbar tabbar-labels toolbar-bottom">
+      <div class="toolbar-inner">
+        <a href="/wardrobe/" class="tab-link">
+          <i class="icon material-icons">checkroom</i>
+          <span class="tabbar-label">Wardrobe</span>
+        </a>
+        <a href="/explore/" class="tab-link tab-link-active">
+          <i class="icon material-icons">explore</i>
+          <span class="tabbar-label">Explore</span>
+        </a>
+        <a href="/virtual-tryon/" class="tab-link">
+          <i class="icon material-icons">style</i>
+          <span class="tabbar-label">Try On</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default (props, { $f7, $on, $update }) => {
+    const preferencesData = [
+      { title: 'Price Range', value: 50 },
+      { title: 'Style Match', value: 50 },
+      { title: 'Size Preference', value: 50 },
+      { title: 'Brand Priority', value: 50 }
+    ];
+  
+    const state = {
+      product: null,
+      loading: true,
+      error: null,
+      currentImageIndex: 0
+    };
+  
+    const handleImageError = (event) => {
+      event.target.src = '/path/to/fallback-image.jpg';
+      event.target.classList.add('image-error');
+    };
+
+    const handleThumbnailClick = (index) => {
+      if (state.product?.imagery?.images?.[index]) {
+        state.currentImageIndex = index;
+        
+        // Update active thumbnail
+        document.querySelectorAll('.thumbnail-wrapper').forEach((thumb, i) => {
+          if (i === index) {
+            thumb.classList.add('active');
+          } else {
+            thumb.classList.remove('active');
+          }
+        });
+        
+        // Update main image with new URL structure
+        const mainImage = document.querySelector('.product-image');
+        if (mainImage) {
+          mainImage.src = `https://slimages.macys.com/is/image/MCY/products/${state.product.imagery.images[index].filePath}`;
+        }
+      }
+    };
+  
+    const handleSettings = () => {
+      $f7.panel.close();
+    };
+  
+    const handleLogout = () => {
+      $f7.panel.close();
+    };
+  
+    const handleSwipe = (direction) => {
+      if (!state.product) return;
+      
+      if (direction === 'right') {
+        $f7.toast.create({
+          text: `Added ${state.product.detail.name || 'Product'} to wardrobe!`,
+          position: 'bottom',
+          closeTimeout: 2000
+        }).open();
+      } else {
+        $f7.toast.create({
+          text: 'Product skipped',
+          position: 'bottom',
+          closeTimeout: 2000
+        }).open();
+      }
+      
+      fetchProduct();
+    };
+  
+
+  const fetchProduct = async () => {
+    try {
+      state.loading = true;
+      state.error = null;
+      $update();
+
+      const url = 'https://macys4.p.rapidapi.com/api/products/12525610';
+      const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '58ae8fb4femshc25b976f65cf69bp1a660djsnb878dfc6f816',
+          'x-rapidapi-host': 'macys4.p.rapidapi.com'
+        }
+      };
+
+      const response = await fetch(url, options);
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch product');
+      }
+
+      const result = await response.json();
+      if (result.status === 'success' && result.data) {
+        state.product = result.data;
+      } else {
+        throw new Error(result.message || 'Failed to fetch product data');
+      }
+    } catch (err) {
+      state.error = err.message;
+      console.error('API Error:', err);
+    } finally {
+      state.loading = false;
+      $update();
+    }
+  };
+
+  $on('pageInit', () => {
+    fetchProduct();
+    
+    const initializeSwiper = () => {
+    const swiper = $f7.swiper.create('.product-swiper', {
+      effect: 'slide',
+      speed: 400,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on: {
+        slideChange: function () {
+          state.currentImageIndex = this.activeIndex;
+          updateThumbnailScroll(this.activeIndex);
+          $update();
+        }
+      }
+    });
+    
+    return swiper;
+  };
+
+  const updateThumbnailScroll = (index) => {
+    const thumbnailsScroll = document.querySelector('.thumbnails-scroll');
+    if (!thumbnailsScroll) return;
+    
+    const thumbnail = thumbnailsScroll.children[index];
+    if (!thumbnail) return;
+    
+    const scrollOffset = thumbnail.offsetLeft - (thumbnailsScroll.offsetWidth / 2) + (thumbnail.offsetWidth / 2);
+    thumbnailsScroll.scrollTo({
+      left: scrollOffset,
+      behavior: 'smooth'
+    });
+  };
+
+  $on('pageInit', () => {
+    const swiper = initializeSwiper();
+    
+    // Observe image load events
+    document.querySelectorAll('.product-image').forEach(img => {
+      img.addEventListener('load', () => {
+        img.classList.add('active');
+      });
+    });
+  });
+  });
+
+  return $render;
+};
+</script>
+
+<style>
+.product-swiper {
+  height: calc(100vh - 300px);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.product-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.product-image.active {
+  opacity: 1;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Enhanced Thumbnail Gallery */
+.thumbnails-gallery {
+  position: relative;
+  width: 100%;
+  padding: 8px 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.thumbnails-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 0 12px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.thumbnail-wrapper {
+  flex: 0 0 60px;
+  height: 75px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.thumbnail-wrapper.active {
+  border-color: #007aff;
+  transform: scale(1.05);
+}
+
+.thumbnail-wrapper:hover .thumbnail-overlay {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.2s ease;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #007aff;
+  background: rgba(255, 255, 255, 0.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 18px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .product-swiper {
+    height: calc(100vh - 400px);
+  }
+  
+  .thumbnails-gallery {
+    position: fixed;
+    bottom: 80px;
+    left: 16px;
+    right: 16px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+  }
+}
+
+@media (min-width: 768px) {
+  .product-swiper {
+    height: calc(100vh - 200px);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .thumbnails-gallery {
+    margin-bottom: 24px;
+  }
+}
+
+/* Fallback Styles */
+.image-error {
+  opacity: 0.7;
+  filter: grayscale(1);
+}
+
+.no-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  color: #666;
+}
+
+.no-image-placeholder i {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+</style>

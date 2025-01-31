@@ -1,0 +1,267 @@
+<!-- HTML Section -->
+<template>
+<div class="page" data-name="styleprofile">
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner">
+      <div class="left">
+        <a href="#" class="link icon-only panel-open" data-panel="left">
+          <i class="f7-icons">menu</i>
+        </a>
+      </div>
+      <div class="title" style="display: flex; justify-content: center; align-items: center;">
+        <img src="StyleSwipeBigLogo.png" alt="StyleSwipe Logo" class="navbar-logo" style="
+          align-items: center;
+          width: 40%;
+          height: 40%;" />
+      </div>
+      <div class="right">
+        <a href="#" class="link icon-only panel-open" data-panel="right">
+          <i class="f7-icons">person</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Left panel-->
+    <div class="panel panel-left panelcover panel-init" id="left-panel">
+      <div class="view">
+        <div class="page">
+          <div class="page-content"> 
+            <ul class="list links-list">
+            <div class="title"> Preferences</div>
+            <li>
+              <a href="/styleprofile/">
+                <span>Edit Style Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="/profileenvironment/">
+                <span>Edit Style Environment</span>
+              </a>
+            </li>
+            </ul>
+ 	   </div>
+          </div>
+      </div>
+      </div>
+  <!-- Right Panel -->
+  <div class="panel panel-right panel-reveal" id="right-panel">
+    <div class="view">
+      <div class="page">
+        <div class="page-content">
+          <ul class="list links-list">
+            <div class="title"> Profile</div>
+            <li>
+              <a href="#">
+                <i class="f7-icons">pencil</i>
+                <span>Edit Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">gear</i>
+                <span>Settings</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">question_circle</i>
+                <span>Help</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">info_circle</i>
+                <span>About</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">arrow_right_to_line</i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Content Section -->
+    <div class="content-wrapper">
+      <div class="content-box">
+        <!-- List Container for Sliders Section -->
+        <ul class="style-list">
+          <h2>What's Your Style</h2>
+
+          <!-- Casual Chick -->
+          <li>
+            <label>Casual Chick</label>
+            <p>A stylish, comfortable look for everyday wear.</p>
+            <div class="range-slider range-slider-init">
+              <input type="range" min="0" max="100" value="50" step="1" />
+            </div>
+          </li>
+
+          <!-- Street Smart -->
+          <li>
+            <label>Street Smart</label>
+            <p>A trendy, urban look with a youthful edge.</p>
+            <div class="range-slider range-slider-init">
+              <input type="range" min="0" max="100" value="50" step="1" />
+            </div>
+          </li>
+
+          <!-- Effortless Elegance -->
+          <li>
+            <label>Effortless Elegance</label>
+            <p>A timeless classic that radiates sophistication.</p>
+            <div class="range-slider range-slider-init">
+              <input type="range" min="0" max="100" value="50" step="1" />
+            </div>
+          </li>
+
+          <!-- Professional Polish -->
+          <li>
+            <label>Professional Polish</label>
+            <p>A sharp, corporate class attire.</p>
+            <div class="range-slider range-slider-init">
+              <input type="range" min="0" max="100" value="50" step="1" />
+            </div>
+          </li>
+        </ul>
+
+        <!-- Save Button -->
+        <div class="save-button-container">
+          <button @click=${navigateToEnvironment}>Save</button>
+        </div>
+      </div>
+      </div>
+      <!-- Toolbar -->
+    <div class="toolbar tabbar modern-toolbar toolbar-bottom">
+      <div class="toolbar-inner">
+        <a href="/profileone/" class="tab-link">
+          <i class="f7-icons">arrowtriangle_left</i>
+          <span class="tabbar-label" style="margin-left: 4px;"></span>
+        </a>
+        <a href="/profileenvironment/" class="tab-link tab-link-active">
+          <i class="f7-icons">arrowtriangle_right</i>
+          <span class="tabbar-label" style="margin-left: 2px"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- CSS Section -->
+<style>
+/* UI Design Primary Stule */
+:root {
+  --primary-color: #72b5fd;
+  --secondary-color: #5856D6;
+  --success-color: #34C759;
+  --warning-color: #FF9500;
+  --danger-color: #FF3B30;
+  --background-color: #F2F2F7;
+  --card-background: #FFFFFF;
+  --text-primary: #000000;
+  --text-secondary: #6d6d6d;
+  --border-radius: 16px;
+  --spacing-unit: 8px;
+}
+
+.navbar-logo {
+  align-items: center;
+  width: 40%;
+  height: 40%;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/StyleSwipeTrianglesfaded.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.content-box {
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 10px rgba(37, 50, 231, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.style-list {
+  width: 100%;
+  padding: 20px;
+  list-style-type: none;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.style-list li {
+  margin-bottom: 20px;
+}
+
+.style-list label {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.style-list p {
+  margin: 5px 0 10px;
+  font-size: 1em;
+  text-align: left;
+  color: #666;
+}
+
+.save-button-container button {
+  width: 100%;
+  background-color: #8228E0;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 1.2em;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.save-button-container button:hover {
+  background-color: #5306a5;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+</style>
+
+<!-- Script Section -->
+<script>
+export default (props, { $f7, $el }) => {
+    const navigateToEnvironment = () => {
+      $f7.views.main.router.navigate('/profileenvironment/'); 
+    };
+
+    return $render;
+  };
+
+</script>

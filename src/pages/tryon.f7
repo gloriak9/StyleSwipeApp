@@ -1,0 +1,553 @@
+<template>
+    <div class="page" data-name="virtual-tryon">
+      <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner">
+      <div class="left">
+        <a href="#" class="link icon-only panel-open" data-panel="left">
+          <i class="f7-icons">menu</i>
+        </a>
+      </div>
+      <div class="title" style="display: flex; justify-content: center; align-items: center;">
+        <img src="StyleSwipeBigLogo.png" alt="StyleSwipe Logo" class="navbar-logo" style="
+          align-items: center;
+          width: 40%;
+          height: 40%;" />
+      </div>
+      <div class="right">
+        <a href="#" class="link icon-only panel-open" data-panel="right">
+          <i class="f7-icons">person</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Left panel-->
+    <div class="panel panel-left panelcover panel-init" id="left-panel">
+      <div class="view">
+        <div class="page">
+          <div class="page-content"> 
+            <ul class="list links-list">
+            <div class="title"> Preferences</div>
+            <li>
+              <a href="/styleprofile/">
+                <span>Edit Style Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="/profileenvironment/">
+                <span>Edit Style Environment</span>
+              </a>
+            </li>
+            </ul>
+ 	   </div>
+          </div>
+      </div>
+      </div>
+  <!-- Right Panel -->
+  <div class="panel panel-right panel-reveal" id="right-panel">
+    <div class="view">
+      <div class="page">
+        <div class="page-content">
+          <ul class="list links-list">
+            <div class="title"> Profile</div>
+            <li>
+              <a href="#">
+                <i class="f7-icons">pencil</i>
+                <span>Edit Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">gear</i>
+                <span>Settings</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">question_circle</i>
+                <span>Help</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">info_circle</i>
+                <span>About</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="f7-icons">arrow_right_to_line</i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+      <!-- Content -->
+      <div class="page-content modern-content">
+        ${state.loading ? $h`
+          <div class="loading-container">
+            <div class="preloader-ring"></div>
+            <p>Processing your virtual try-on...</p>
+          </div>
+        ` : $h`
+          ${state.error ? $h`
+            <div class="error-container">
+              <i class="f7-icons">exclamationmark_circle</i>
+              <p>${state.error}</p>
+            </div>
+          ` : $h`
+            <!-- Image Upload Section -->
+            <div class="modern-card">
+              <div class="card-header">
+                <h3>Your Photo</h3>
+              </div>
+              <div class="card-content">
+                ${state.userImage ? $h`
+                  <div class="image-preview">
+                    <img src="${state.userImage}" alt="Your photo" />
+                    <a href="#" class="modern-button-secondary" @click="${clearUserImage}">
+                      <i class="f7-icons">trash</i>
+                      <!-- Remove -->
+                    </a>
+                  </div>
+                ` : $h`
+                  <div class="upload-buttons">
+                    <label class="modern-button" @click="${openCamera}">
+                      <i class="f7-icons">camera</i>
+                      Take Photo
+                    </label>
+                    <label class="modern-button" @click="${openGallery}">
+                      <i class="f7-icons">photo</i>
+                      Choose from Gallery
+                    </label>
+                    <input type="file" 
+                      id="imageInput" 
+                      accept="image/*" 
+                      style="display: none;"
+                      @change="${handleImageSelect}"
+                    />
+                  </div>
+                `}
+              </div>
+            </div>
+  
+            <!-- Outfit Selection Section -->
+            <div class="modern-card">
+                <div class="card-header">
+                <h3>Select Outfit</h3>
+                </div>
+                <div class="card-content">
+                ${state.selectedOutfit ? $h`
+                    <div class="image-preview">
+                    <img src="${state.selectedOutfit}" alt="Selected outfit" />
+                    <a href="#" class="modern-button-secondary" @click="${clearSelectedOutfit}">
+                        <i class="f7-icons">trash</i>
+                        <!-- Remove -->
+                    </a>
+                    </div>
+                ` : $h`
+                    <div class="upload-buttons">
+                    <a href="/wardrobe/" class="modern-button">
+                        <i class="f7-icons">archivebox</i>
+                        Choose from Wardrobe
+                    </a>
+                    <label class="modern-button" @click="${openOutfitGallery}">
+                        <i class="f7-icons">photo</i>
+                        Choose from Gallery
+                    </label>
+                    <input type="file" 
+                        id="outfitInput" 
+                        accept="image/*" 
+                        style="display: none;"
+                        @change="${handleOutfitSelect}"
+                    />
+                    </div>
+                `}
+                </div>
+            </div>
+  
+            <!-- Result Section -->
+            ${state.result ? $h`
+              <div class="modern-card">
+                <div class="card-header">
+                  <h3>Try-On Result</h3>
+                </div>
+                <div class="card-content">
+                  <div class="result-image">
+                    <img src="${state.result}" alt="Virtual try-on result" />
+                    <a href="#" class="modern-button-secondary" @click="${saveResult}">
+                      <i class="f7-icons">square_arrow_down</i>
+                      Save Photo
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ` : $h`
+              ${state.userImage && state.selectedOutfit ? $h`
+                <a href="#" class="modern-button try-on-button" @click="${performTryOn}">
+                  <i class="f7-icons">wand_stars</i>
+                  Generate Try-On
+                </a>
+              ` : ''}
+            `}
+          `}
+        `}
+      </div>
+  
+      <!-- Modern Toolbar -->
+      <div class="toolbar tabbar modern-toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <a href="/wardrobe/" class="tab-link">
+            <i class="f7-icons">archivebox</i>
+            <span class="tabbar-label">Wardrobe</span>
+          </a>
+          <a href="/explore/" class="tab-link">
+            <i class="f7-icons">compass</i>
+            <span class="tabbar-label">Explore</span>
+          </a>
+          <a href="/virtual-tryon/" class="tab-link tab-link-active">
+            <i class="f7-icons">sparkles</i>
+            <span class="tabbar-label">Try On</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  
+  import { client } from "@gradio/client";
+
+  export default (props, { $f7, $on, $update }) => {
+    const state = {
+      userImage: null,
+      selectedOutfit: null,
+      result: null,
+      loading: false,
+      error: null
+    };
+  
+    const openCamera = () => {
+      const input = document.getElementById('imageInput');
+      input.setAttribute('capture', 'user');
+      input.click();
+    };
+  
+    const openGallery = () => {
+      const input = document.getElementById('imageInput');
+      input.removeAttribute('capture');
+      input.click();
+    };
+  
+    const handleImageSelect = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          state.userImage = e.target.result;
+          $update();
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+  
+    const clearUserImage = () => {
+      state.userImage = null;
+      $update();
+    };
+  
+    const clearSelectedOutfit = () => {
+      state.selectedOutfit = null;
+      $update();
+    };
+    
+    const performTryOn = async () => {
+        try {
+            state.loading = true;
+            state.error = null;
+            $update();
+
+            // Convert base64 images to blobs
+            const userImageBlob = await fetch(state.userImage).then(r => r.blob());
+            const outfitImageBlob = await fetch(state.selectedOutfit).then(r => r.blob());
+
+            // Initialize Gradio client
+            const app = await client("yisol/IDM-VTON");
+            
+            // Make prediction with required parameter structure specifiedd by API
+            const result = await app.predict("/tryon", [
+                {
+                    "background": userImageBlob,  // First parameter: Human image for masking
+                    "layers": [],
+                    "composite": null
+                },
+                outfitImageBlob,                 // Second parameter: Garment image
+                "Virtual Try-On",                // Third parameter: Text parameter
+                true,                           // Fourth parameter: First checkbox
+                true,                           // Fifth parameter: Second checkbox
+                20,                             // Sixth parameter: Denoising steps
+                42                              // Seventh parameter: Seed
+            ]);
+
+            // Extract the result URL from the response
+            if (result && result.data && Array.isArray(result.data) && result.data.length >= 2) {
+                // Get the first image from the result array (the final output)
+                const finalOutput = result.data[0]; 
+                
+                if (finalOutput.url) {
+                    // the add retry logic for fetching the final image
+                    const response = await fetchWithRetry(finalOutput.url);
+                    if (!response.ok) throw new Error('Failed to fetch final processed image');
+                    
+                    const blob = await response.blob();
+                    const reader = new FileReader();
+                    reader.readAsDataURL(blob);
+                    reader.onloadend = function() {
+                        state.result = reader.result;
+                        $update();
+                    };
+                } else {
+                    throw new Error("No URL in the final output response");
+                }
+            } else {
+                throw new Error("Invalid response structure from try-on service");
+            }
+        } catch (err) {
+            console.error('Try-on Error:', err);
+            state.error = "Failed to generate try-on result. Please try again.";
+            if (err.message) {
+                state.error += ` (${err.message})`;
+            }
+        } finally {
+            state.loading = false;
+            $update();
+        }
+    };
+
+    // The a timeout utility function
+    const timeout = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    // The retry logic for fetching result
+    const fetchWithRetry = async (url, maxRetries = 3, delayMs = 1000) => {
+        for (let i = 0; i < maxRetries; i++) {
+            try {
+            const response = await fetch(url);
+            if (response.ok) return response;
+            } catch (err) {
+            if (i === maxRetries - 1) throw err;
+            }
+            await timeout(delayMs);
+        }
+        throw new Error('Max retries reached');
+    };
+
+    // Update the save result function
+    const saveResult = () => {
+        if (state.result) {
+            // Create a download link
+            const link = document.createElement('a');
+            
+            // Use directly if the result is already a base64 string
+            if (state.result.startsWith('data:image')) {
+                // Extract base64 data and create blob
+                const base64Data = state.result.split(',')[1];
+                const blob = base64ToBlob(base64Data, 'image/png');
+                
+                // Create a blob URL and set it as the download link
+                const blobUrl = window.URL.createObjectURL(blob);
+                link.href = blobUrl;
+                link.download = 'virtual-tryon-result.png';
+                
+                // For download
+                document.body.appendChild(link);
+                link.click();
+                
+                // For clean up
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(blobUrl);
+            } else {
+                // For URLs, fetch the image first
+                fetch(state.result)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const blobUrl = window.URL.createObjectURL(blob);
+                        link.href = blobUrl;
+                        link.download = 'virtual-tryon-result.png';
+                        
+                        document.body.appendChild(link);
+                        link.click();
+                        
+                        document.body.removeChild(link);
+                        window.URL.revokeObjectURL(blobUrl);
+                    })
+                    .catch(error => {
+                        console.error('Error saving image:', error);
+                        state.error = 'Failed to save the image. Please try again.';
+                        $update();
+                    });
+            }
+        }
+    };
+
+    // The function to convert base64 to blob
+    const base64ToBlob = (base64, mimeType) => {
+        const byteString = atob(base64);
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        
+        return new Blob([ab], { type: mimeType });
+    };
+    
+  
+    // A cleanup function
+    const cleanup = () => {
+      state.userImage = null;
+      state.selectedOutfit = null;
+      state.result = null;
+      state.loading = false;
+      state.error = null;
+      $update();
+    };
+
+    // Add page connection hook
+    $on('pageInit', () => {
+     
+    });
+
+    $on('pageBeforeOut', cleanup);
+    $on('pageBeforeRemove', cleanup);
+  
+    // Check outfit selection from wardrobe
+    $on('outfitSelected', (outfit) => {
+      state.selectedOutfit = outfit.image;
+      $update();
+    });
+
+    //!!NOTE!! These added new functions in tje script
+    const openOutfitGallery = () => {
+    const input = document.getElementById('outfitInput');
+    input.removeAttribute('capture');
+    input.click();
+    };
+
+    const handleOutfitSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+        state.selectedOutfit = e.target.result;
+        $update();
+        };
+        reader.readAsDataURL(file);
+    }
+    };
+  
+    return $render;
+  };
+  </script>
+  
+  <style>
+  /* Virtual Try-On specific styles */
+  .modern-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: calc(var(--spacing-unit) * 2);
+    margin-top: calc(var(--spacing-unit) * 4);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .card-header {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+  
+  .card-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  
+  .upload-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit);
+  }
+  
+  .modern-button-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-unit);
+    background: var(--background-color);
+    color: var(--text-primary);
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: calc(var(--spacing-unit) * 2);
+    border-radius: calc(var(--border-radius) / 2);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .image-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-unit);
+  }
+  
+  .image-preview img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: calc(var(--border-radius) / 2);
+  }
+  
+  .result-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-unit);
+  }
+  
+  .result-image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: calc(var(--border-radius) / 2);
+  }
+  
+  .try-on-button {
+    position: fixed;
+    bottom: 30px;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 150px;
+    z-index: 1000;
+  }
+  
+  /* Responsive desin */
+  @media (min-width: 768px) {
+    .modern-card {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .upload-buttons {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  </style>

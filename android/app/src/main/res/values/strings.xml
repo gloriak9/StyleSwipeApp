@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">StyleSwipe</string>
+    <string name="title_activity_main">StyleSwipe</string>
+    <string name="package_name">com.groupthree.styleswipe</string>
+    <string name="custom_url_scheme">com.groupthree.styleswipe</string>
+</resources>

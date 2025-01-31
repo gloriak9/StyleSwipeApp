@@ -1,0 +1,25 @@
+{
+  "cwd": "A:\\aokasha_IntProtyp_TUM_WS25\\def_app",
+  "type": [
+    "capacitor"
+  ],
+  "name": "def_app",
+  "pkg": "def_app_f7",
+  "framework": "core",
+  "template": "single-view",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "capacitor": {
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkMode": false,
+    "iconFonts": false
+  },
+  "customBuild": false
+}
