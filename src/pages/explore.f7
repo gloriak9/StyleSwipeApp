@@ -254,7 +254,7 @@ export default (props, { $f7, $on, $update }) => {
       $update();
 
       // Fetch products from JSON file
-      const response = await fetch('../data/fetchedProducts.json');
+      const response = await fetch('fetchedProducts.json');
       if (!response.ok) {
         throw new Error('Failed to fetch products data');
       }
