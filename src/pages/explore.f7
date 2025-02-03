@@ -1,92 +1,66 @@
 <template>
   <div class="page" data-name="explore">
     <!-- Navbar -->
-  <div class="navbar">
-    <div class="navbar-bg"></div>
-    <div class="navbar-inner">
-      <div class="left">
-        <a href="#" class="link icon-only panel-open" data-panel="left">
-          <i class="f7-icons">menu</i>
-        </a>
-      </div>
-      <div class="title" style="display: flex; justify-content: center; align-items: center;">
-        <img src="StyleSwipeBigLogo.png" alt="StyleSwipe Logo" class="navbar-logo" style="
-          align-items: center;
-          width: 40%;
-          height: 40%;" />
-      </div>
-      <div class="right">
-        <a href="#" class="link icon-only panel-open" data-panel="right">
-          <i class="f7-icons">person</i>
-        </a>
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link icon-only panel-open" data-panel="left">
+            <i class="f7-icons">menu</i>
+          </a>
+        </div>
+        <div class="title">
+          <img src="../assets/logo.png" alt="StyleSwipe Logo" class="navbar-logo"/>
+        </div>
+        <div class="right">
+          <a href="#" class="link icon-only panel-open" data-panel="right">
+            <i class="f7-icons">person</i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Left panel-->
-    <div class="panel panel-left panelcover panel-init" id="left-panel">
-      <div class="view">
-        <div class="page">
-          <div class="page-content"> 
-            <ul class="list links-list">
-            <div class="title"> Preferences</div>
+
+    <!-- Panels -->
+    <div class="panel panel-left panel-reveal">
+      <div class="block-title">Preferences</div>
+      <div class="list">
+        <ul>
+          ${preferencesData.map((pref) => $h`
             <li>
-              <a href="/styleprofile/">
-                <span>Edit Style Profile</span>
-              </a>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">${pref.title}</div>
+                  <div class="item-after">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="100" step="1" value="${pref.value}">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
-            <li>
-              <a href="/profileenvironment/">
-                <span>Edit Style Environment</span>
-              </a>
-            </li>
-            </ul>
- 	   </div>
-          </div>
+          `)}
+        </ul>
       </div>
-      </div>
-  <!-- Right Panel -->
-  <div class="panel panel-right panel-reveal" id="right-panel">
-    <div class="view">
-      <div class="page">
-        <div class="page-content">
-          <ul class="list links-list">
-            <div class="title"> Profile</div>
-            <li>
-              <a href="#">
-                <i class="f7-icons">pencil</i>
-                <span>Edit Profile</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="f7-icons">gear</i>
-                <span>Settings</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="f7-icons">question_circle</i>
-                <span>Help</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="f7-icons">info_circle</i>
-                <span>About</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="f7-icons">arrow_right_to_line</i>
-                <span>Logout</span>
-              </a>
-            </li>
+    </div>
+
+    <div class="panel panel-right panel-reveal">
+      <div class="block">
+        <div class="profile-header">
+          <i class="f7-icons profile-icon">person_fill</i>
+          <h2>User Profile</h2>
+        </div>
+        <div class="list">
+          <ul>
+            <li><a class="item-link" @click="${handleSettings}">
+              <i class="f7-icons">gear</i> Settings
+            </a></li>
+            <li><a class="item-link" @click="${handleLogout}">
+              <i class="f7-icons">square_arrow_right</i> Logout
+            </a></li>
           </ul>
         </div>
       </div>
     </div>
-  </div>
-
 
     <!-- Content -->
     <div class="page-content modern-content">
