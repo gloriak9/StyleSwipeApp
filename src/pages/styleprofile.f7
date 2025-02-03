@@ -188,7 +188,7 @@
   background-position: center;
   background-color: #fff;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 30px;
 }
 
 .content-box {
@@ -197,7 +197,7 @@
   background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0 4px 10px rgba(37, 50, 231, 0.2);
   border-radius: 20px;
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

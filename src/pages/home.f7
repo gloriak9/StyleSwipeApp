@@ -110,6 +110,7 @@
     display: block;
     margin: 0 auto;
     text-align: center;
+    margin bottom: 20px;
   }
 
   .raised-button:hover {
