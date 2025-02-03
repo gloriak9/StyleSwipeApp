@@ -15,6 +15,7 @@
           width: 40%;
           height: 40%;" />
       </div>
+     
       <div class="right">
         <a href="#" class="link icon-only panel-open" data-panel="right">
           <i class="f7-icons">person</i>
@@ -189,20 +190,15 @@
   background-repeat: no-repeat;
   background-position: center;
 <<<<<<< HEAD
-<<<<<<< HEAD
   padding: 40px 20px 20px 40px;
 =======
   padding: 20px;
 >>>>>>> e5db1848be4aae487cb91851181cd3aa2adcfbf2
-=======
-  padding: 40px 20px 20px 40px;
->>>>>>> c8d4cce (commit edited setup pages)
 }
 
 .form-container {
   max-width: 600px;
   background-color: rgba(255, 255, 255, 0.9);
-<<<<<<< HEAD
 <<<<<<< HEAD
   border-radius: 20px;
   padding: 20px;
@@ -211,10 +207,6 @@
   padding: 30px;
   margin: 20px;
 >>>>>>> e5db1848be4aae487cb91851181cd3aa2adcfbf2
-=======
-  border-radius: 20px;
-  padding: 20px;
->>>>>>> c8d4cce (commit edited setup pages)
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin: 0;
   box-sizing: border-box;
