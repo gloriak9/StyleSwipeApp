@@ -1,92 +1,66 @@
 <template>
   <div class="page" data-name="explore">
     <!-- Navbar -->
-  <div class="navbar">
-    <div class="navbar-bg"></div>
-    <div class="navbar-inner">
-      <div class="left">
-        <a href="#" class="link icon-only panel-open" data-panel="left">
-          <i class="f7-icons">menu</i>
-        </a>
-      </div>
-      <div class="title" style="display: flex; justify-content: center; align-items: center;">
-        <img src="StyleSwipeBigLogo.png" alt="StyleSwipe Logo" class="navbar-logo" style="
-          align-items: center;
-          width: 40%;
-          height: 40%;" />
-      </div>
-      <div class="right">
-        <a href="#" class="link icon-only panel-open" data-panel="right">
-          <i class="f7-icons">person</i>
-        </a>
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link icon-only panel-open" data-panel="left">
+            <i class="f7-icons">menu</i>
+          </a>
+        </div>
+        <div class="title">
+          <img src="../assets/logo.png" alt="StyleSwipe Logo" class="navbar-logo"/>
+        </div>
+        <div class="right">
+          <a href="#" class="link icon-only panel-open" data-panel="right">
+            <i class="f7-icons">person</i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Left panel-->
-    <div class="panel panel-left panelcover panel-init" id="left-panel">
-      <div class="view">
-        <div class="page">
-          <div class="page-content"> 
-            <ul class="list links-list">
-            <div class="title"> Preferences</div>
+
+    <!-- Panels -->
+    <div class="panel panel-left panel-reveal">
+      <div class="block-title">Preferences</div>
+      <div class="list">
+        <ul>
+          ${preferencesData.map((pref) => $h`
             <li>
-              <a href="/styleprofile/">
-                <span>Edit Style Profile</span>
-              </a>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">${pref.title}</div>
+                  <div class="item-after">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="100" step="1" value="${pref.value}">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
-            <li>
-              <a href="/profileenvironment/">
-                <span>Edit Style Environment</span>
-              </a>
-            </li>
-            </ul>
- 	   </div>
-          </div>
+          `)}
+        </ul>
       </div>
-      </div>
-  <!-- Right Panel -->
-  <div class="panel panel-right panel-reveal" id="right-panel">
-    <div class="view">
-      <div class="page">
-        <div class="page-content">
-          <ul class="list links-list">
-            <div class="title"> Profile</div>
-            <li>
-              <a href="#">
-                <i class="f7-icons">pencil</i>
-                <span>Edit Profile</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="f7-icons">gear</i>
-                <span>Settings</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="f7-icons">question_circle</i>
-                <span>Help</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="f7-icons">info_circle</i>
-                <span>About</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="f7-icons">arrow_right_to_line</i>
-                <span>Logout</span>
-              </a>
-            </li>
+    </div>
+
+    <div class="panel panel-right panel-reveal">
+      <div class="block">
+        <div class="profile-header">
+          <i class="f7-icons profile-icon">person_fill</i>
+          <h2>User Profile</h2>
+        </div>
+        <div class="list">
+          <ul>
+            <li><a class="item-link" @click="${handleSettings}">
+              <i class="f7-icons">gear</i> Settings
+            </a></li>
+            <li><a class="item-link" @click="${handleLogout}">
+              <i class="f7-icons">square_arrow_right</i> Logout
+            </a></li>
           </ul>
         </div>
       </div>
     </div>
-  </div>
-
 
     <!-- Content -->
     <div class="page-content modern-content">
@@ -253,12 +227,138 @@ export default (props, { $f7, $on, $update }) => {
       state.error = null;
       $update();
 
-      // Fetch products from JSON file
-      const response = await fetch(`https://styleswipeteam.netlify.app/fetchedProducts.json`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch products data');
-      }
-      const data = await response.json();
+      // Direct JSON data instead of fetching
+      const data = {
+        "products": [
+          {
+            "detail": {
+              "name": "Men's Solid Crew Neck Merino Wool Blend Sweater, Created for Macy's",
+              "description": "For cool-weather style that goes with anything from jeans and a T-shirt to a button-down and khakis, choose the classic silhouette and super-soft feel of this crewneck sweater from Club Room."
+            },
+            "imagery": {
+              "images": [
+                { "filePath": "9/optimized/30279519_fpx.tif" },
+                { "filePath": "5/optimized/30279525_fpx.tif" }
+              ]
+            },
+            "pricing": {
+              "price": {
+                "tieredPrice": [{
+                  "values": [{
+                    "formattedValue": "EUR 30.05"
+                  }]
+                }]
+              }
+            },
+            "url": "https://www.macys.com/shop/product/club-room-mens-solid-crew-neck-merino-wool-blend-sweater-created-for-macys?ID=9368495&swatchColor=Crm%20Deep%20Hunter"
+          },
+          {
+            "detail": {
+              "name": "Men's Piqué Knit Bomber Jacket, Created for Macy's",
+              "description": "A mix of textures and tones make for a dynamic look on this track-meets-bomber jacket style from Alfani."
+            },
+            "imagery": {
+              "images": [
+                { "filePath": "8/optimized/29130728_fpx.tif" },
+                { "filePath": "9/optimized/29130729_fpx.tif" },
+                { "filePath": "0/optimized/29130730_fpx.tif" },
+                { "filePath": "5/optimized/29130745_fpx.tif" }
+              ]
+            },
+            "pricing": {
+              "price": {
+                "tieredPrice": [{
+                  "values": [{
+                    "formattedValue": "EUR 25.04"
+                  }]
+                }]
+              }
+            },
+            "url": "https://www.macys.com/shop/product/alfani-mens-pique-knit-bomber-jacket-created-for-macys?ID=18031752"
+          },
+          {
+            "detail": {
+              "name": "Men's Regular-Fit Water-Resistant Full-Zip Bomber Jacket, Created for Macy's",
+              "description": "Keep your casual look sleek and stylish even in stormy weather with this versatile bomber jacket from Alfani®"
+            },
+            "imagery": {
+              "images": [
+                { "filePath": "7/optimized/29644857_fpx.tif" },
+                { "filePath": "0/optimized/29645210_fpx.tif" },
+                { "filePath": "3/optimized/29644973_fpx.tif" },
+                { "filePath": "4/optimized/29645134_fpx.tif" }
+              ]
+            },
+            "pricing": {
+              "price": {
+                "tieredPrice": [{
+                  "values": [{
+                    "formattedValue": "EUR 49.09"
+                  }]
+                }]
+              }
+            },
+            "url": "https://www.macys.com/shop/product/alfani-mens-regular-fit-water-resistant-full-zip-bomber-jacket-created-for-macys?ID=16702580"
+          },
+          {
+            "detail": {
+              "name": "Men's Tweed Bomber Jacket, Exclusively at Macy's",
+              "description": "This textured tweed bomber jacket from Mode of One has a relaxed fit and snap buttons on the front."
+            },
+            "imagery": {
+              "images": [
+                { "filePath": "8/optimized/30073378_fpx.tif" },
+                { "filePath": "9/optimized/30073379_fpx.tif" },
+                { "filePath": "0/optimized/30073380_fpx.tif" },
+                { "filePath": "6/optimized/30074226_fpx.tif" },
+                { "filePath": "0/optimized/30073390_fpx.tif" },
+                { "filePath": "2/optimized/30074212_fpx.tif" },
+                { "filePath": "3/optimized/30074213_fpx.tif" },
+                { "filePath": "1/optimized/30073391_fpx.tif" },
+                { "filePath": "8/optimized/30073408_fpx.tif" },
+                { "filePath": "7/optimized/30074227_fpx.tif" }
+              ]
+            },
+            "pricing": {
+              "price": {
+                "tieredPrice": [{
+                  "values": [{
+                    "formattedValue": "EUR 77.87"
+                  }]
+                }]
+              }
+            },
+            "url": "https://www.macys.com/shop/product/mode-of-one-mens-tweed-bomber-jacket-exclusively-at-macys?ID=18678975"
+          },
+          {
+            "detail": {
+              "name": "Men's Faux-Leather Moto Jacket, Exclusively at Macy's",
+              "description": "Mode of One's faux-leather moto jacket features a patch pocket and a logo print across the front."
+            },
+            "imagery": {
+              "images": [
+                { "filePath": "5/optimized/30074005_fpx.tif" },
+                { "filePath": "7/optimized/30074007_fpx.tif" },
+                { "filePath": "6/optimized/30074006_fpx.tif" },
+                { "filePath": "0/optimized/30074010_fpx.tif" },
+                { "filePath": "5/optimized/30074015_fpx.tif" },
+                { "filePath": "4/optimized/30074014_fpx.tif" }
+              ]
+            },
+            "pricing": {
+              "price": {
+                "tieredPrice": [{
+                  "values": [{
+                    "formattedValue": "EUR 77.87"
+                  }]
+                }]
+              }
+            },
+            "url": "https://www.macys.com/shop/product/mode-of-one-mens-faux-leather-moto-jacket-exclusively-at-macys?ID=18736092"
+          }
+        ]
+      };
+
       state.products = data.products;
 
       if (state.products.length === 0) {
@@ -527,14 +627,6 @@ export default (props, { $f7, $on, $update }) => {
   --border-radius: 16px;
   --spacing-unit: 8px;
 }
-
-.navbar .navbar-logo {
-  align-items: center;
-  width: 40%;
-  height: 40%;
-  justify-content: center;
-}
-
 
 /* Image Navigation Buttons */
 .image-nav-button {
