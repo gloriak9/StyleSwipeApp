@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "products": [
     {
@@ -127,4 +128,135 @@
       "url": "https://www.macys.com/shop/product/mode-of-one-mens-faux-leather-moto-jacket-exclusively-at-macys?ID=18736092"
     }
   ]
+=======
+{
+  "products": [
+    {
+      "detail": {
+        "name": "Men's Solid Crew Neck Merino Wool Blend Sweater, Created for Macy's",
+        "description": "For cool-weather style that goes with anything from jeans and a T-shirt to a button-down and khakis, choose the classic silhouette and super-soft feel of this crewneck sweater from Club Room."
+      },
+      "imagery": {
+        "images": [
+          { "filePath": "9/optimized/30279519_fpx.tif" },
+          { "filePath": "5/optimized/30279525_fpx.tif" }
+        ]
+      },
+      "pricing": {
+        "price": {
+          "tieredPrice": [{
+            "values": [{
+              "formattedValue": "EUR 30.05"
+            }]
+          }]
+        }
+      },
+      "url": "https://www.macys.com/shop/product/club-room-mens-solid-crew-neck-merino-wool-blend-sweater-created-for-macys?ID=9368495&swatchColor=Crm%20Deep%20Hunter"
+    },
+    {
+      "detail": {
+        "name": "Men's Piqué Knit Bomber Jacket, Created for Macy's",
+        "description": "A mix of textures and tones make for a dynamic look on this track-meets-bomber jacket style from Alfani."
+      },
+      "imagery": {
+        "images": [
+          { "filePath": "8/optimized/29130728_fpx.tif" },
+          { "filePath": "9/optimized/29130729_fpx.tif" },
+          { "filePath": "0/optimized/29130730_fpx.tif" },
+          { "filePath": "5/optimized/29130745_fpx.tif" }
+        ]
+      },
+      "pricing": {
+        "price": {
+          "tieredPrice": [{
+            "values": [{
+              "formattedValue": "EUR 25.04"
+            }]
+          }]
+        }
+      },
+      "url": "https://www.macys.com/shop/product/alfani-mens-pique-knit-bomber-jacket-created-for-macys?ID=18031752"
+    },
+    {
+      "detail": {
+        "name": "Men's Regular-Fit Water-Resistant Full-Zip Bomber Jacket, Created for Macy's",
+        "description": "Keep your casual look sleek and stylish even in stormy weather with this versatile bomber jacket from Alfani®"
+      },
+      "imagery": {
+        "images": [
+          { "filePath": "7/optimized/29644857_fpx.tif" },
+          { "filePath": "0/optimized/29645210_fpx.tif" },
+          { "filePath": "3/optimized/29644973_fpx.tif" },
+          { "filePath": "4/optimized/29645134_fpx.tif" }
+        ]
+      },
+      "pricing": {
+        "price": {
+          "tieredPrice": [{
+            "values": [{
+              "formattedValue": "EUR 49.09"
+            }]
+          }]
+        }
+      },
+      "url": "https://www.macys.com/shop/product/alfani-mens-regular-fit-water-resistant-full-zip-bomber-jacket-created-for-macys?ID=16702580"
+    },
+    {
+      "detail": {
+        "name": "Men's Tweed Bomber Jacket, Exclusively at Macy's",
+        "description": "This textured tweed bomber jacket from Mode of One has a relaxed fit and snap buttons on the front."
+      },
+      "imagery": {
+        "images": [
+          { "filePath": "8/optimized/30073378_fpx.tif" },
+          { "filePath": "9/optimized/30073379_fpx.tif" },
+          { "filePath": "0/optimized/30073380_fpx.tif" },
+          { "filePath": "6/optimized/30074226_fpx.tif" },
+          { "filePath": "0/optimized/30073390_fpx.tif" },
+          { "filePath": "2/optimized/30074212_fpx.tif" },
+          { "filePath": "3/optimized/30074213_fpx.tif" },
+          { "filePath": "1/optimized/30073391_fpx.tif" },
+          { "filePath": "8/optimized/30073408_fpx.tif" },
+          { "filePath": "7/optimized/30074227_fpx.tif" }
+        ]
+      },
+      "pricing": {
+        "price": {
+          "tieredPrice": [{
+            "values": [{
+              "formattedValue": "EUR 77.87"
+            }]
+          }]
+        }
+      },
+      "url": "https://www.macys.com/shop/product/mode-of-one-mens-tweed-bomber-jacket-exclusively-at-macys?ID=18678975"
+    },
+    {
+      "detail": {
+        "name": "Men's Faux-Leather Moto Jacket, Exclusively at Macy's",
+        "description": "Mode of One's faux-leather moto jacket features a patch pocket and a logo print across the front."
+      },
+      "imagery": {
+        "images": [
+          { "filePath": "5/optimized/30074005_fpx.tif" },
+          { "filePath": "7/optimized/30074007_fpx.tif" },
+          { "filePath": "6/optimized/30074006_fpx.tif" },
+          { "filePath": "0/optimized/30074010_fpx.tif" },
+          { "filePath": "5/optimized/30074015_fpx.tif" },
+          { "filePath": "4/optimized/30074014_fpx.tif" }
+        ]
+      },
+      "pricing": {
+        "price": {
+          "tieredPrice": [{
+            "values": [{
+              "formattedValue": "EUR 77.87"
+            }]
+          }]
+        }
+      },
+      "url": "https://www.macys.com/shop/product/mode-of-one-mens-faux-leather-moto-jacket-exclusively-at-macys?ID=18736092"
+    }
+  ]
+>>>>>>> e5db1848be4aae487cb91851181cd3aa2adcfbf2
 }
