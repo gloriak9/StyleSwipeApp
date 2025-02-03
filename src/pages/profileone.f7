@@ -174,7 +174,7 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  padding: 40px 20px 20px 40px;
+  padding: 40px 30px 30px 40px;
   font-family: Arial, sans-serif;
 }
 
