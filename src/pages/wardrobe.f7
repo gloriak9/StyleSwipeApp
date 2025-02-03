@@ -12,8 +12,8 @@
       <div class="title" style="display: flex; justify-content: center; align-items: center;">
         <img src="StyleSwipeBigLogo.png" alt="StyleSwipe Logo" class="navbar-logo" style="
           align-items: center;
-          width: 40%;
-          height: 40%;" />
+          width: 50%;
+          height: 50%;" />
       </div>
       <div class="searchfilter">
         <a href="#">
@@ -280,7 +280,7 @@
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: calc(var(--spacing-unit) * 2);
     padding: calc(var(--spacing-unit) * 2);
-    margin-top: 20%;
+    margin-top: 10%;
     margin-bottom: 5%;
   }
   

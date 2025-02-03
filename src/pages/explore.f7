@@ -681,7 +681,7 @@ export default (props, { $f7, $on, $update }) => {
 } */
 
 .modern-product-image {
-  margin-top: 20%;
+  margin-top: 10%;
   width: 100%;
   height: auto;
   object-fit: cover;
