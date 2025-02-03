@@ -81,7 +81,11 @@
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 4px 10px rgba(37, 50, 231, 0.2);
+<<<<<<< HEAD
   font-family: Arial, sans-serif;
+=======
+
+>>>>>>> e5db1848be4aae487cb91851181cd3aa2adcfbf2
 }
 
 .form-container h2 {

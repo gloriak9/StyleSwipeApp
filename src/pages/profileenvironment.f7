@@ -188,14 +188,24 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+<<<<<<< HEAD
   padding: 40px 20px 20px 40px;
+=======
+  padding: 20px;
+>>>>>>> e5db1848be4aae487cb91851181cd3aa2adcfbf2
 }
 
 .form-container {
   max-width: 600px;
   background-color: rgba(255, 255, 255, 0.9);
+<<<<<<< HEAD
   border-radius: 20px;
   padding: 20px;
+=======
+  border-radius: 15px;
+  padding: 30px;
+  margin: 20px;
+>>>>>>> e5db1848be4aae487cb91851181cd3aa2adcfbf2
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin: 0;
   box-sizing: border-box;

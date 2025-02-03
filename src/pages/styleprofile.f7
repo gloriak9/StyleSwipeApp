@@ -188,7 +188,11 @@
   background-position: center;
   background-color: #fff;
   box-sizing: border-box;
+<<<<<<< HEAD
   padding: 40px 30px 40px 30px;
+=======
+  padding: 30px;
+>>>>>>> e5db1848be4aae487cb91851181cd3aa2adcfbf2
 }
 
 .content-box {
