@@ -188,7 +188,7 @@
   background-position: center;
   background-color: #fff;
   box-sizing: border-box;
-  padding: 30px;
+  padding: 40px 30px 40px 30px;
 }
 
 .content-box {
@@ -215,7 +215,7 @@
 }
 
 .style-list li {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .style-list label {

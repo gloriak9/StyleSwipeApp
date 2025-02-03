@@ -90,7 +90,7 @@
     <!-- Content Section -->
     <div class="content-section">
       <div class="form-container">
-        <h2 style="margin-top=30px">Create Your Account</h2>
+        <h2>Create Your Account</h2>
 
         <!-- Registration Form -->
         <form class="registration-form">
@@ -101,7 +101,7 @@
 
           <div>
             <label for="confirm-username">Confirm Username:</label>
-            <input type="text" placeholder="Username" id="confirm-username" name="confirm-username" required />
+            <input type="text" placeholder="Username" id="confirm-username" name="confirm-username"  			required />
           </div>
 
           <div>
@@ -110,7 +110,7 @@
           </div>
           <div>
             <label for="confirm-password">Confirm Password:</label>
-            <input type="password" placeholder="Password" id="confirm-password" name="confirm-password" required />
+            <input type="password" placeholder="Password" id="confirm-password" name="confirm-password"  		required />
           </div>
 
           <div class="gender-section">
@@ -125,21 +125,21 @@
                 </div>
           </div>
           <div class="size-section">
-          <label style="font-size: 1.2em; text-align: left; display: block;">Size:</label>
+          <label style="font-size: 1em; text-align: left; display: block;">Size:</label>
           <div class="size-options">
-            <label for="size-xs" style="font-size: 1.2em; margin-right: 10px;">
+            <label for="size-xs" style="font-size: 1em; margin-right: 8px;">
               <input type="radio" id="size-xs" name="size" value="xs" /> XS
             </label>
-            <label for="size-s" style="font-size: 1.2em; margin-right: 10px;">
+            <label for="size-s" style="font-size: 1em; margin-right: 8px;">
               <input type="radio" id="size-s" name="size" value="s" /> S
             </label>
-            <label for="size-m" style="font-size: 1.2em; margin-right: 10px;">
+            <label for="size-m" style="font-size: 1em; margin-right: 8px;">
               <input type="radio" id="size-m" name="size" value="m" /> M
             </label>
-            <label for="size-l" style="font-size: 1.2em; margin-right: 10px;">
+            <label for="size-l" style="font-size: 1em; margin-right: 8px;">
               <input type="radio" id="size-l" name="size" value="l" /> L
             </label>
-            <label for="size-xl" style="font-size: 1.2em; margin-right: 10px;">
+            <label for="size-xl" style="font-size: 1em; margin-right: 8px;">
               <input type="radio" id="size-xl" name="size" value="xl" /> XL
             </label>
           </div>
@@ -174,14 +174,15 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
+  padding: 40px 20px 20px 40px;
+  font-family: Arial, sans-serif;
 }
 
 .form-container {
-  width: 100%;
   max-width: 400px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 4px 10px rgba(37, 50, 231, 0.2);
   margin: 20px;
 }
@@ -210,7 +211,7 @@
 
 .registration-form input {
   width: 100%;
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -219,7 +220,7 @@
 .gender-section {
   display: flex;
   align-items: center;
-  gap: 10px; /* Adjust spacing between the "Gender:" label and radio options */
+  gap: 8px; /* Adjust spacing between the "Gender:" label and radio options */
 }
 
 .gender-options {
@@ -253,7 +254,7 @@
 
 
 .submit-button {
-  width: 100%;
+  max-width: 400px;
   background-color: #8228E0;
   color: white;
   border: none;

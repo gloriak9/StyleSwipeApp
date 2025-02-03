@@ -111,7 +111,6 @@
             <div class="color-picker">
               <input type="color" name="color1" />
               <input type="color" name="color2" />
-              <input type="color" name="color3" />
             </div>
           </div>
 
@@ -189,17 +188,19 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 20px;
+  padding: 40px 20px 20px 40px;
 }
 
 .form-container {
-  width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  padding: 30px;
-  margin: 20px;
+  border-radius: 20px;
+  padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 h2 {
@@ -225,11 +226,11 @@ label {
 
 .color-picker input {
   margin-right: 10px;
-  width: 50px;
-  height: 50px; /* Ensure width and height are equal for a perfect circle */
+  width: 30px;
+  height: 30px; 
   border: none;
   cursor: pointer;
-  border-radius: 50%; /* Makes the element round */
+  border-radius: 50%;
 }
 
 .submit-button {
@@ -242,6 +243,10 @@ label {
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .submit-button:hover {
