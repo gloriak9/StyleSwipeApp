@@ -90,7 +90,7 @@
     <!-- Content Section -->
     <div class="content-section">
       <div class="form-container">
-        <h2 style="margin-top=30px">Create Your Account</h2>
+        <h2>Create Your Account</h2>
 
         <!-- Registration Form -->
         <form class="registration-form">
